@@ -6,8 +6,8 @@
 ## Resources
 
 * [1Spatial](https://1spatial.com/)
-* [1Integrate for ArcGIS] (https://1spatial.com/us/products/1integrate-for-arcgis/)
+* [1Integrate for ArcGIS](https://1spatial.com/us/products/1integrate-for-arcgis/)
 * [1Integrate for ArcGIS Help](https://1spatial.com/documentation/1integrate-arcgis/v2/Topics/Getting_Started)
 
 ## Folders
-### NENA COMMING SOON!
+### NENA Validation Ruleset COMMING SOON!

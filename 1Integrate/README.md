@@ -4,10 +4,10 @@
 ## Resources
 
 * [1Spatial](https://1spatial.com/)
-* [1Integrate] (https://1spatial.com/us/products/1integrate/)
+* [1Integrate](https://1spatial.com/us/products/1integrate/)
 * [1Integrate Help](https://1spatial.com/documentation/1integrate/v2_3)
 
 ## Folders
-### NENA COMMING SOON!
+### NENA Validation Rules COMMING SOON!
 
 

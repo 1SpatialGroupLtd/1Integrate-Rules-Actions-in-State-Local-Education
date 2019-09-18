@@ -3,7 +3,7 @@ This repository includes sample 1Integrate validation checks against the Nationa
 
 For instructions on restoring a backup please refer to the following [documentation](https://1spatial.com/documentation/1integrate/v2_5/Topics/Backup_Restore.htm?Highlight=Restore%20Backup%20Rules)
 
-## Reposoitory Structure
+## Repository Structure
 This repository folder is broken down by layer idenified within the NENA guidelines.  Each XML file includes all the Validation rules for that layer, including Conditional, Mandatory and Optional Rules, defined in the NENA guidelines. There are also helper DataStore backups that will assist in getting your 1Integrate environment configured.
 
 ## Required Layers

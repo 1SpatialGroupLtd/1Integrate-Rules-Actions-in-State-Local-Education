@@ -1,5 +1,5 @@
-# Sample Road Checks
-This repo folder contains some Sample Road checks by Rule that can be used within 1Integrate.  
+# Sample Road Centerline Checks
+This repo folder contains some Sample Road Centerline checks by Rule that can be used within 1Integrate.  
 These road checks are used by a number of State and County organizations using 1Spatial's 1Integrate software. 
 These rules are written against the NENA NextGen911 Standard Schema for Road Centerlines 
 For instructions on restoring a backup please refer to the following [documentation](https://1spatial.com/documentation/1integrate/v2_5/Topics/Backup_Restore.htm?Highlight=Restore%20Backup%20Rules)

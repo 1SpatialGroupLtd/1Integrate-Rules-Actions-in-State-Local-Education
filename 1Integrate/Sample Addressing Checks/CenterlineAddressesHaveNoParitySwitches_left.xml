@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Backup xmlns="http://schema.onespatial.com/radius/studio/v2" xmlns:gml="http://www.opengis.net/gml">
+    <RuleFolder>
+        <Metadata>
+            <Name>RULE</Name>
+            <Created>
+                <UserDate date="2017-01-06T01:22:42.000Z" user="Radius Studio"/>
+            </Created>
+            <LastEdited>
+                <UserDate date="2017-01-06T01:22:42.000Z" user="Radius Studio"/>
+            </LastEdited>
+        </Metadata>
+        <IsShortcut>false</IsShortcut>
+        <RuleFolder>
+            <Metadata>
+                <Name>Standard</Name>
+                <Created>
+                    <UserDate date="2017-01-03T01:13:12.000Z" user="1Spatial"/>
+                </Created>
+                <LastEdited>
+                    <UserDate date="2019-02-05T06:30:18.000Z" user="1Spatial"/>
+                </LastEdited>
+            </Metadata>
+            <IsShortcut>false</IsShortcut>
+            <RuleFolder>
+                <Metadata>
+                    <Name>SLED - Sample Addressing Checks</Name>
+                    <Description></Description>
+                    <Comments></Comments>
+                    <Created>
+                        <UserDate/>
+                    </Created>
+                    <LastEdited>
+                        <UserDate date="2019-09-04T10:13:39.000Z" user="1Spatial"/>
+                    </LastEdited>
+                </Metadata>
+                <IsShortcut>false</IsShortcut>
+                <Item id="RULE://Standard/SLED - Sample Addressing Checks/CENTERLINE Addresses have no parity switches (left vs left)">
+                    <Metadata>
+                        <Name>CENTERLINE Addresses have no parity switches (left vs left)</Name>
+                        <Description>For all intersecting CENTERLINEs that share the same STREET_NAME, STREET_TYPE, and ZIP_CODE_LEFT, and with valid address ranges (From values not equal to To values),\n     check that if the left address range of one is even, then the left address range of the other must also be even,\n                       if the left address range of one is odd, then the left address range of the other must also be odd.</Description>
+                        <Comments></Comments>
+                        <Created>
+                            <UserDate date="2019-09-04T10:15:57.000Z" user="1Spatial"/>
+                        </Created>
+                        <LastEdited>
+                            <UserDate date="2019-09-04T00:24:29.000Z" user="1Spatial"/>
+                        </LastEdited>
+                    </Metadata>
+                    <IsShortcut>false</IsShortcut>
+                    <Rule>
+                        <RootPredicate classLabel="Road_Centerline" objLabel="">
+                            <ForAllPredicate classLabel="Road_Centerline" objLabel="other">
+                                <AndPredicate>
+                                    <RelationalPredicate>
+                                        <DynamicValue classRef="Road_Centerline" objRef="" propName="geometry"/>
+                                        <SpatialIntersectsRelation/>
+                                        <DynamicValue classRef="Road_Centerline" objRef="other" propName="geometry"/>
+                                    </RelationalPredicate>
+                                    <RelationalPredicate>
+                                        <BuiltinFnValue fnName="ends_of">
+                                            <DynamicValue classRef="Road_Centerline" objRef="" propName="geometry"/>
+                                        </BuiltinFnValue>
+                                        <SpatialIntersectsRelation/>
+                                        <BuiltinFnValue fnName="ends_of">
+                                            <DynamicValue classRef="Road_Centerline" objRef="other" propName="geometry"/>
+                                        </BuiltinFnValue>
+                                    </RelationalPredicate>
+                                    <RelationalPredicate>
+                                        <DynamicValue classRef="Road_Centerline" objRef="" propName="St_Name"/>
+                                        <EqualsRelation/>
+                                        <DynamicValue classRef="Road_Centerline" objRef="other" propName="St_Name"/>
+                                    </RelationalPredicate>
+                                    <RelationalPredicate>
+                                        <DynamicValue classRef="Road_Centerline" objRef="" propName="St_PosTyp"/>
+                                        <EqualsRelation/>
+                                        <DynamicValue classRef="Road_Centerline" objRef="other" propName="St_PosTyp"/>
+                                    </RelationalPredicate>
+                                    <AndPredicate>
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Road_Centerline" objRef="" propName="FromAddr_L"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Road_Centerline" objRef="" propName="FromAddr_L"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Road_Centerline" objRef="" propName="ToAddr_L"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Road_Centerline" objRef="" propName="ToAddr_L"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Road_Centerline" objRef="other" propName="FromAddr_L"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Road_Centerline" objRef="other" propName="FromAddr_L"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Road_Centerline" objRef="other" propName="ToAddr_L"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Road_Centerline" objRef="other" propName="ToAddr_L"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                    </AndPredicate>
+                                    <AndPredicate>
+                                        <RelationalPredicate>
+                                            <DynamicValue classRef="Road_Centerline" objRef="" propName="FromAddr_L"/>
+                                            <NotEqualsRelation/>
+                                            <DynamicValue classRef="Road_Centerline" objRef="" propName="ToAddr_L"/>
+                                        </RelationalPredicate>
+                                        <RelationalPredicate>
+                                            <DynamicValue classRef="Road_Centerline" objRef="other" propName="FromAddr_L"/>
+                                            <NotEqualsRelation/>
+                                            <DynamicValue classRef="Road_Centerline" objRef="other" propName="ToAddr_L"/>
+                                        </RelationalPredicate>
+                                    </AndPredicate>
+                                    <RelationalPredicate>
+                                        <ObjectValue classRef="Road_Centerline" objRef=""/>
+                                        <NotEqualsRelation/>
+                                        <ObjectValue classRef="Road_Centerline" objRef="other"/>
+                                    </RelationalPredicate>
+                                </AndPredicate>
+                                <ConditionalPredicate>
+                                    <AndPredicate>
+                                        <RelationalPredicate>
+                                            <ModulusValue>
+                                                <DynamicValue classRef="Road_Centerline" objRef="" propName="FromAddr_L"/>
+                                                <StaticValue datatype="integer" value="2"/>
+                                            </ModulusValue>
+                                            <NotEqualsRelation/>
+                                            <StaticValue datatype="integer" value="0"/>
+                                        </RelationalPredicate>
+                                        <RelationalPredicate>
+                                            <ModulusValue>
+                                                <DynamicValue classRef="Road_Centerline" objRef="" propName="ToAddr_L"/>
+                                                <StaticValue datatype="integer" value="2"/>
+                                            </ModulusValue>
+                                            <NotEqualsRelation/>
+                                            <StaticValue datatype="integer" value="0"/>
+                                        </RelationalPredicate>
+                                    </AndPredicate>
+                                    <AndPredicate>
+                                        <RelationalPredicate>
+                                            <ModulusValue>
+                                                <DynamicValue classRef="Road_Centerline" objRef="other" propName="FromAddr_L"/>
+                                                <StaticValue datatype="integer" value="2"/>
+                                            </ModulusValue>
+                                            <NotEqualsRelation/>
+                                            <StaticValue datatype="integer" value="0"/>
+                                        </RelationalPredicate>
+                                        <RelationalPredicate>
+                                            <ModulusValue>
+                                                <DynamicValue classRef="Road_Centerline" objRef="other" propName="ToAddr_L"/>
+                                                <StaticValue datatype="integer" value="2"/>
+                                            </ModulusValue>
+                                            <NotEqualsRelation/>
+                                            <StaticValue datatype="integer" value="0"/>
+                                        </RelationalPredicate>
+                                    </AndPredicate>
+                                    <ConditionalPredicate>
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <ModulusValue>
+                                                    <DynamicValue classRef="Road_Centerline" objRef="" propName="FromAddr_L"/>
+                                                    <StaticValue datatype="integer" value="2"/>
+                                                </ModulusValue>
+                                                <EqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <ModulusValue>
+                                                    <DynamicValue classRef="Road_Centerline" objRef="" propName="ToAddr_L"/>
+                                                    <StaticValue datatype="integer" value="2"/>
+                                                </ModulusValue>
+                                                <EqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <ModulusValue>
+                                                    <DynamicValue classRef="Road_Centerline" objRef="other" propName="FromAddr_L"/>
+                                                    <StaticValue datatype="integer" value="2"/>
+                                                </ModulusValue>
+                                                <EqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <ModulusValue>
+                                                    <DynamicValue classRef="Road_Centerline" objRef="other" propName="ToAddr_L"/>
+                                                    <StaticValue datatype="integer" value="2"/>
+                                                </ModulusValue>
+                                                <EqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                    </ConditionalPredicate>
+                                </ConditionalPredicate>
+                            </ForAllPredicate>
+                        </RootPredicate>
+                    </Rule>
+                </Item>
+            </RuleFolder>
+        </RuleFolder>
+    </RuleFolder>
+</Backup>

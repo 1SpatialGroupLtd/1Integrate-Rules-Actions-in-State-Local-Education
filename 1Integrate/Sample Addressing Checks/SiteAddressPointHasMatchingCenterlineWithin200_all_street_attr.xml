@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Backup xmlns="http://schema.onespatial.com/radius/studio/v2" xmlns:gml="http://www.opengis.net/gml">
+    <RuleFolder>
+        <Metadata>
+            <Name>RULE</Name>
+            <Created>
+                <UserDate date="2017-01-06T01:22:42.000Z" user="Radius Studio"/>
+            </Created>
+            <LastEdited>
+                <UserDate date="2017-01-06T01:22:42.000Z" user="Radius Studio"/>
+            </LastEdited>
+        </Metadata>
+        <IsShortcut>false</IsShortcut>
+        <RuleFolder>
+            <Metadata>
+                <Name>Standard</Name>
+                <Created>
+                    <UserDate date="2017-01-03T01:13:12.000Z" user="1Spatial"/>
+                </Created>
+                <LastEdited>
+                    <UserDate date="2019-02-05T06:30:18.000Z" user="1Spatial"/>
+                </LastEdited>
+            </Metadata>
+            <IsShortcut>false</IsShortcut>
+            <RuleFolder>
+                <Metadata>
+                    <Name>SLED - Sample Addressing Checks</Name>
+                    <Description></Description>
+                    <Comments></Comments>
+                    <Created>
+                        <UserDate/>
+                    </Created>
+                    <LastEdited>
+                        <UserDate date="2019-09-04T10:13:39.000Z" user="1Spatial"/>
+                    </LastEdited>
+                </Metadata>
+                <IsShortcut>false</IsShortcut>
+                <Item id="RULE://Standard/SLED - Sample Addressing Checks/SITE ADDRESS POINT has a CENTERLINE with the same street attributes within 200 ft">
+                    <Metadata>
+                        <Name>SITE ADDRESS POINT has a CENTERLINE with the same street attributes within 200 ft</Name>
+                        <Description>Checks that an ADDRESS POINT has a matching CENTERLINE with the same Street Name, Street Pre Direction, Street Post Direction.... within 200 units of the Site Address Points.  NOTE: Units depend on the coordinate system of the underlying data.</Description>
+                        <Comments></Comments>
+                        <Created>
+                            <UserDate date="2019-09-04T10:21:47.000Z" user="1Spatial"/>
+                        </Created>
+                        <LastEdited>
+                            <UserDate date="2019-09-04T11:26:01.000Z" user="1Spatial"/>
+                        </LastEdited>
+                    </Metadata>
+                    <IsShortcut>false</IsShortcut>
+                    <Rule>
+                        <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                            <ExistsPredicate qualifier="at least" n="1" classLabel="Road_Centerline" objLabel="">
+                                <AndPredicate>
+                                    <RelationalPredicate>
+                                        <DynamicValue classRef="Road_Centerline" objRef="" propName="geometry"/>
+                                        <SpatialWithinDistRelation distance="200.0"/>
+                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="geometry"/>
+                                    </RelationalPredicate>
+                                    <RelationalPredicate>
+                                        <DynamicValue classRef="Road_Centerline" objRef="" propName="St_Name"/>
+                                        <ContainsRelation/>
+                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_Name"/>
+                                    </RelationalPredicate>
+                                    <RelationalPredicate>
+                                        <DynamicValue classRef="Road_Centerline" objRef="" propName="St_PosDir"/>
+                                        <ContainsRelation/>
+                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PosDir"/>
+                                    </RelationalPredicate>
+                                    <RelationalPredicate>
+                                        <DynamicValue classRef="Road_Centerline" objRef="" propName="St_PosMod"/>
+                                        <ContainsRelation/>
+                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PosMod"/>
+                                    </RelationalPredicate>
+                                    <RelationalPredicate>
+                                        <DynamicValue classRef="Road_Centerline" objRef="" propName="St_PosTyp"/>
+                                        <ContainsRelation/>
+                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PosTyp"/>
+                                    </RelationalPredicate>
+                                    <RelationalPredicate>
+                                        <DynamicValue classRef="Road_Centerline" objRef="" propName="St_PreDir"/>
+                                        <ContainsRelation/>
+                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PreDir"/>
+                                    </RelationalPredicate>
+                                    <RelationalPredicate>
+                                        <DynamicValue classRef="Road_Centerline" objRef="" propName="St_PreMod"/>
+                                        <ContainsRelation/>
+                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PreMod"/>
+                                    </RelationalPredicate>
+                                    <RelationalPredicate>
+                                        <DynamicValue classRef="Road_Centerline" objRef="" propName="St_PreSep"/>
+                                        <ContainsRelation/>
+                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PreSep"/>
+                                    </RelationalPredicate>
+                                    <RelationalPredicate>
+                                        <DynamicValue classRef="Road_Centerline" objRef="" propName="St_PreTyp"/>
+                                        <ContainsRelation/>
+                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PreTyp"/>
+                                    </RelationalPredicate>
+                                </AndPredicate>
+                            </ExistsPredicate>
+                        </RootPredicate>
+                    </Rule>
+                </Item>
+            </RuleFolder>
+        </RuleFolder>
+    </RuleFolder>
+</Backup>

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Backup xmlns="http://schema.onespatial.com/radius/studio/v2" xmlns:gml="http://www.opengis.net/gml">
+    <DataStoreFolder>
+        <Metadata>
+            <Name>DATASTORE</Name>
+            <Created>
+                <UserDate date="2017-01-04T01:31:12.000Z" user="Radius Studio"/>
+            </Created>
+            <LastEdited>
+                <UserDate date="2017-01-04T01:31:12.000Z" user="Radius Studio"/>
+            </LastEdited>
+        </Metadata>
+        <IsShortcut>false</IsShortcut>
+        <DataStoreFolder>
+            <Metadata>
+                <Name>Standard</Name>
+                <Description></Description>
+                <Comments></Comments>
+                <Created>
+                    <UserDate/>
+                </Created>
+                <LastEdited>
+                    <UserDate date="2019-09-04T09:45:19.000Z" user="1Spatial"/>
+                </LastEdited>
+            </Metadata>
+            <IsShortcut>false</IsShortcut>
+            <DataStoreFolder>
+                <Metadata>
+                    <Name>NENA - Validations</Name>
+                    <Created>
+                        <UserDate/>
+                    </Created>
+                    <LastEdited>
+                        <UserDate date="2019-09-04T09:44:42.000Z" user="1Spatial"/>
+                    </LastEdited>
+                </Metadata>
+                <IsShortcut>false</IsShortcut>
+                <Item id="DATASTORE://Standard/NENA - Validations/ValidValues">
+                    <Metadata>
+                        <Name>ValidValues</Name>
+                        <Created>
+                            <UserDate date="2019-09-04T09:44:42.000Z" user="1Spatial"/>
+                        </Created>
+                        <LastEdited>
+                            <UserDate date="2019-09-04T09:44:42.000Z" user="1Spatial"/>
+                        </LastEdited>
+                    </Metadata>
+                    <IsShortcut>false</IsShortcut>
+                    <DataStore>
+                        <ImportCredentials>
+                            <Credentials type="geometry" name="Esri Geodatabase File (FILEGDB)">
+                                <param name="_connection_use" datatype="string" displayValue="">import</param>
+                                <param name="Source Files (.gdb)" datatype="upload" displayValue="ValidValues.zip">null</param>
+                                <param name="Timestamp" datatype="Timestamp" displayValue="">1567015069191</param>
+                                <param name="Coordinate Reference System" datatype="string" displayValue=""></param>
+                                <param name="Import FME Log File" datatype="download" displayValue=""></param>
+                                <param name="Allow invalid geometries" datatype="boolean" displayValue="">true</param>
+                                <param name="Fix ring direction and inclusion errors" datatype="boolean" displayValue="">false</param>
+                                <param name="Reverse coordinate axis order (y,x)" datatype="boolean" displayValue="">false</param>
+                                <param name="Clip to envelope" datatype="boolean" displayValue="">false</param>
+                                <param name="Exposed attributes" datatype="string" displayValue=""></param>
+                            </Credentials>
+                        </ImportCredentials>
+                        <ExportCredentials>
+                            <Credentials type="geometry" name="ESRI Shape (GDAL)">
+                                <param name="_connection_use" datatype="string" displayValue="">export</param>
+                                <param name="Timestamp" datatype="Timestamp" displayValue=""></param>
+                                <param name="Destination Files (.shp,.shx,.dbf)" datatype="download" displayValue=""></param>
+                            </Credentials>
+                        </ExportCredentials>
+                        <InputSchema>
+                            <Schema>
+                                <Class name="NG911_ValidValues_Table_Counties">
+                                    <Attribute minOccurs="1" maxOccurs="1" name="CntyNGUID" datatype="fme_varchar">
+                                        <param name="length">254</param>
+                                    </Attribute>
+                                    <Attribute minOccurs="1" maxOccurs="1" name="Cnty_FIPS" datatype="fme_varchar">
+                                        <param name="length">3</param>
+                                    </Attribute>
+                                    <Attribute minOccurs="1" maxOccurs="1" name="Country" datatype="fme_varchar">
+                                        <param name="length">2</param>
+                                    </Attribute>
+                                    <Attribute minOccurs="1" maxOccurs="1" name="County" datatype="fme_varchar">
+                                        <param name="length">75</param>
+                                    </Attribute>
+                                    <Attribute minOccurs="1" maxOccurs="1" name="DateUpdate" datatype="fme_datetime"/>
+                                    <Attribute minOccurs="1" maxOccurs="1" name="DiscrpAgID" datatype="fme_varchar">
+                                        <param name="length">75</param>
+                                    </Attribute>
+                                    <Attribute minOccurs="1" maxOccurs="1" name="Effective" datatype="fme_datetime"/>
+                                    <Attribute minOccurs="1" maxOccurs="1" name="Expire" datatype="fme_datetime"/>
+                                    <Attribute minOccurs="1" maxOccurs="1" name="FIPSCode" datatype="fme_varchar">
+                                        <param name="length">5</param>
+                                    </Attribute>
+                                    <Attribute minOccurs="1" maxOccurs="1" name="OBJECTID" datatype="fme_int32"/>
+                                    <Attribute minOccurs="1" maxOccurs="1" name="State" datatype="fme_varchar">
+                                        <param name="length">75</param>
+                                    </Attribute>
+                                    <Attribute minOccurs="1" maxOccurs="1" name="State_Abbr" datatype="fme_varchar">
+                                        <param name="length">2</param>
+                                    </Attribute>
+                                    <Attribute minOccurs="1" maxOccurs="1" name="State_FIPS" datatype="fme_varchar">
+                                        <param name="length">2</param>
+                                    </Attribute>
+                                </Class>
+                                <Class name="NG911_ValidValues_Table_States">
+                                    <Attribute minOccurs="1" maxOccurs="1" name="Country" datatype="fme_varchar">
+                                        <param name="length">2</param>
+                                    </Attribute>
+                                    <Attribute minOccurs="1" maxOccurs="1" name="DateUpdate" datatype="fme_datetime"/>
+                                    <Attribute minOccurs="1" maxOccurs="1" name="DiscrpAgID" datatype="fme_varchar">
+                                        <param name="length">75</param>
+                                    </Attribute>
+                                    <Attribute minOccurs="1" maxOccurs="1" name="Effective" datatype="fme_datetime"/>
+                                    <Attribute minOccurs="1" maxOccurs="1" name="Expire" datatype="fme_datetime"/>
+                                    <Attribute minOccurs="1" maxOccurs="1" name="OBJECTID" datatype="fme_int32"/>
+                                    <Attribute minOccurs="1" maxOccurs="1" name="State" datatype="fme_varchar">
+                                        <param name="length">75</param>
+                                    </Attribute>
+                                    <Attribute minOccurs="1" maxOccurs="1" name="State_Abbr" datatype="fme_varchar">
+                                        <param name="length">2</param>
+                                    </Attribute>
+                                    <Attribute minOccurs="1" maxOccurs="1" name="State_FIPS" datatype="fme_varchar">
+                                        <param name="length">2</param>
+                                    </Attribute>
+                                    <Attribute minOccurs="1" maxOccurs="1" name="State_NGUID" datatype="fme_varchar">
+                                        <param name="length">254</param>
+                                    </Attribute>
+                                </Class>
+                                <Class name="NG911_ValidValues_Table_World_Countries">
+                                    <Attribute minOccurs="1" maxOccurs="1" name="COUNTRYAFF" datatype="fme_varchar">
+                                        <param name="length">254</param>
+                                    </Attribute>
+                                    <Attribute minOccurs="1" maxOccurs="1" name="Country" datatype="fme_varchar">
+                                        <param name="length">2</param>
+                                    </Attribute>
+                                    <Attribute minOccurs="1" maxOccurs="1" name="DateUpdate" datatype="fme_datetime"/>
+                                    <Attribute minOccurs="1" maxOccurs="1" name="DiscrpAgID" datatype="fme_varchar">
+                                        <param name="length">75</param>
+                                    </Attribute>
+                                    <Attribute minOccurs="1" maxOccurs="1" name="Effective" datatype="fme_datetime"/>
+                                    <Attribute minOccurs="1" maxOccurs="1" name="Expire" datatype="fme_datetime"/>
+                                    <Attribute minOccurs="1" maxOccurs="1" name="ISO" datatype="fme_varchar">
+                                        <param name="length">3</param>
+                                    </Attribute>
+                                    <Attribute minOccurs="1" maxOccurs="1" name="OBJECTID" datatype="fme_int32"/>
+                                </Class>
+                            </Schema>
+                        </InputSchema>
+                        <OutputSchema>
+                            <Schema/>
+                        </OutputSchema>
+                        <ImportMapping>
+                            <SchemaMapping fixed_target="false">
+                                <SimpleClassMapping source="NG911_ValidValues_Table_Counties" target="NG911_ValidValues_Table_Counties" disabled="false">
+                                    <SimpleAttributeMapping source="CntyNGUID" target="CntyNGUID" target_type="String" disabled="false" indexed="false" reported="false"/>
+                                    <SimpleAttributeMapping source="Cnty_FIPS" target="Cnty_FIPS" target_type="String" disabled="false" indexed="false" reported="false"/>
+                                    <SimpleAttributeMapping source="Country" target="Country" target_type="String" disabled="false" indexed="false" reported="false"/>
+                                    <SimpleAttributeMapping source="County" target="County" target_type="String" disabled="false" indexed="true" reported="false"/>
+                                    <SimpleAttributeMapping source="DateUpdate" target="DateUpdate" target_type="Timestamp" disabled="false" indexed="false" reported="false"/>
+                                    <SimpleAttributeMapping source="DiscrpAgID" target="DiscrpAgID" target_type="String" disabled="false" indexed="false" reported="false"/>
+                                    <SimpleAttributeMapping source="Effective" target="Effective" target_type="Timestamp" disabled="false" indexed="false" reported="false"/>
+                                    <SimpleAttributeMapping source="Expire" target="Expire" target_type="Timestamp" disabled="false" indexed="false" reported="false"/>
+                                    <SimpleAttributeMapping source="FIPSCode" target="FIPSCode" target_type="String" disabled="false" indexed="false" reported="false"/>
+                                    <SimpleAttributeMapping source="OBJECTID" target="OBJECTID" target_type="Integer" disabled="false" indexed="false" reported="false"/>
+                                    <SimpleAttributeMapping source="State" target="State" target_type="String" disabled="false" indexed="false" reported="false"/>
+                                    <SimpleAttributeMapping source="State_Abbr" target="State_Abbr" target_type="String" disabled="false" indexed="true" reported="false"/>
+                                    <SimpleAttributeMapping source="State_FIPS" target="State_FIPS" target_type="String" disabled="false" indexed="false" reported="false"/>
+                                </SimpleClassMapping>
+                                <SimpleClassMapping source="NG911_ValidValues_Table_States" target="NG911_ValidValues_Table_States" disabled="false">
+                                    <SimpleAttributeMapping source="Country" target="Country" target_type="String" disabled="false" indexed="true" reported="false"/>
+                                    <SimpleAttributeMapping source="DateUpdate" target="DateUpdate" target_type="Timestamp" disabled="false" indexed="false" reported="false"/>
+                                    <SimpleAttributeMapping source="DiscrpAgID" target="DiscrpAgID" target_type="String" disabled="false" indexed="false" reported="false"/>
+                                    <SimpleAttributeMapping source="Effective" target="Effective" target_type="Timestamp" disabled="false" indexed="false" reported="false"/>
+                                    <SimpleAttributeMapping source="Expire" target="Expire" target_type="Timestamp" disabled="false" indexed="false" reported="false"/>
+                                    <SimpleAttributeMapping source="OBJECTID" target="OBJECTID" target_type="Integer" disabled="false" indexed="false" reported="false"/>
+                                    <SimpleAttributeMapping source="State" target="State" target_type="String" disabled="false" indexed="false" reported="false"/>
+                                    <SimpleAttributeMapping source="State_Abbr" target="State_Abbr" target_type="String" disabled="false" indexed="true" reported="false"/>
+                                    <SimpleAttributeMapping source="State_FIPS" target="State_FIPS" target_type="String" disabled="false" indexed="false" reported="false"/>
+                                    <SimpleAttributeMapping source="State_NGUID" target="State_NGUID" target_type="String" disabled="false" indexed="false" reported="false"/>
+                                </SimpleClassMapping>
+                                <SimpleClassMapping source="NG911_ValidValues_Table_World_Countries" target="NG911_ValidValues_Table_World_Countries" disabled="false">
+                                    <SimpleAttributeMapping source="COUNTRYAFF" target="COUNTRYAFF" target_type="String" disabled="false" indexed="false" reported="false"/>
+                                    <SimpleAttributeMapping source="Country" target="Country" target_type="String" disabled="false" indexed="true" reported="false"/>
+                                    <SimpleAttributeMapping source="DateUpdate" target="DateUpdate" target_type="Timestamp" disabled="false" indexed="false" reported="false"/>
+                                    <SimpleAttributeMapping source="DiscrpAgID" target="DiscrpAgID" target_type="String" disabled="false" indexed="false" reported="false"/>
+                                    <SimpleAttributeMapping source="Effective" target="Effective" target_type="Timestamp" disabled="false" indexed="false" reported="false"/>
+                                    <SimpleAttributeMapping source="Expire" target="Expire" target_type="Timestamp" disabled="false" indexed="false" reported="false"/>
+                                    <SimpleAttributeMapping source="ISO" target="ISO" target_type="String" disabled="false" indexed="false" reported="false"/>
+                                    <SimpleAttributeMapping source="OBJECTID" target="OBJECTID" target_type="Integer" disabled="false" indexed="false" reported="false"/>
+                                </SimpleClassMapping>
+                            </SchemaMapping>
+                        </ImportMapping>
+                        <ExportMapping>
+                            <SchemaMapping fixed_target="false"/>
+                        </ExportMapping>
+                    </DataStore>
+                </Item>
+            </DataStoreFolder>
+        </DataStoreFolder>
+    </DataStoreFolder>
+</Backup>

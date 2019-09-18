@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Backup xmlns="http://schema.onespatial.com/radius/studio/v2" xmlns:gml="http://www.opengis.net/gml">
+    <RuleFolder>
+        <Metadata>
+            <Name>RULE</Name>
+            <Created>
+                <UserDate date="2017-01-06T01:22:42.000Z" user="Radius Studio"/>
+            </Created>
+            <LastEdited>
+                <UserDate date="2017-01-06T01:22:42.000Z" user="Radius Studio"/>
+            </LastEdited>
+        </Metadata>
+        <IsShortcut>false</IsShortcut>
+        <RuleFolder>
+            <Metadata>
+                <Name>Standard</Name>
+                <Created>
+                    <UserDate date="2017-01-03T01:13:12.000Z" user="1Spatial"/>
+                </Created>
+                <LastEdited>
+                    <UserDate date="2019-02-05T06:30:18.000Z" user="1Spatial"/>
+                </LastEdited>
+            </Metadata>
+            <IsShortcut>false</IsShortcut>
+            <RuleFolder>
+                <Metadata>
+                    <Name>NENA - Validations</Name>
+                    <Comments>Branch: master\nRecent Commits:\n</Comments>
+                    <Created>
+                        <UserDate date="2019-09-03T03:06:01.000Z"/>
+                    </Created>
+                    <LastEdited>
+                        <UserDate date="2019-09-03T03:06:01.000Z" user="1Spatial"/>
+                    </LastEdited>
+                </Metadata>
+                <IsShortcut>false</IsShortcut>
+                <RuleFolder>
+                    <Metadata>
+                        <Name>Strongly_Recommended_Layers</Name>
+                        <Created>
+                            <UserDate date="2019-09-03T03:06:06.000Z"/>
+                        </Created>
+                        <LastEdited>
+                            <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                        </LastEdited>
+                    </Metadata>
+                    <IsShortcut>false</IsShortcut>
+                    <RuleFolder>
+                        <Metadata>
+                            <Name>States</Name>
+                            <Created>
+                                <UserDate date="2019-09-03T03:06:07.000Z"/>
+                            </Created>
+                            <LastEdited>
+                                <UserDate date="2019-09-03T03:06:07.000Z" user="1Spatial"/>
+                            </LastEdited>
+                        </Metadata>
+                        <IsShortcut>false</IsShortcut>
+                        <RuleFolder>
+                            <Metadata>
+                                <Name>Mandatory</Name>
+                                <Created>
+                                    <UserDate date="2019-09-03T03:06:07.000Z"/>
+                                </Created>
+                                <LastEdited>
+                                    <UserDate date="2019-09-03T03:06:07.000Z" user="1Spatial"/>
+                                </LastEdited>
+                            </Metadata>
+                            <IsShortcut>false</IsShortcut>
+                            <Item id="RULE://Standard/NENA - Validations/Strongly_Recommended_Layers/States/Mandatory/States - Attribute - Validation - DateUpdate">
+                                <Metadata>
+                                    <Name>States - Attribute - Validation - DateUpdate</Name>
+                                    <Description>Date Updated:\nDescription: The date and time that the record was created or last modified. This value\nMUST be populated upon modifications to attributes, geometry, or both.\nDomain: Date and Time may be stored in the local database date/time format with the proviso that local time zone MUST be recorded and time MUST be recorded to a precision of at least 1 second and MAY be recorded to a precision of 0.1 second. If the local database date/time format does not meet these specifications, the database SHOULD record both the local date/time format and a string conforming to W3C dateTime format as described in XML Schema Part 2: Datatypes Second Edition [10].\nExample: (of a W3C dateTime with optional precision of .1 second)\n2017-12-21T17:58.03.1-05:00 (representing a record updated on December 21, 2017 at 5:58 and 3.1 seconds PM US Eastern Standard Time); 2017-07-11T08:31:15.2-04:00 (representing a record updated on July 11, 2017 at 8:31\nand 15.2 seconds AM US Eastern Daylight Time)</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:07.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:07.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="States" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="States" objRef="" propName="DateUpdate"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="States" objRef="" propName="DateUpdate"/>
+                                                <NotEqualsRelation/>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <StaticValue datatype="string" value=""/>
+                                                </BuiltinFnValue>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="States" objRef="" propName="DateUpdate"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Strongly_Recommended_Layers/States/Mandatory/States - Attribute - Validation - DiscrpAgID">
+                                <Metadata>
+                                    <Name>States - Attribute - Validation - DiscrpAgID</Name>
+                                    <Description>Discrepancy Agency ID:\nDescription: Agency that receives a Discrepancy Report (DR), should a discrepancy be discovered, and will take responsibility for ensuring discrepancy resolution. This may or may not be the same as the 9-1-1 Authority. This MUST be represented by a domain name that is an Agency Identifier as defined in the NENA Master Glossary.\nDomain: None\nExample: Vermont911.vt.us.gov; nct911.dst.tx.us\n\npg 51</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:07.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:07.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="States" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="States" objRef="" propName="DiscrpAgID"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="States" objRef="" propName="DiscrpAgID"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="States" objRef="" propName="DiscrpAgID"/>
+                                                <NotEqualsRelation/>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <StaticValue datatype="string" value=""/>
+                                                </BuiltinFnValue>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="length">
+                                                    <DynamicValue classRef="States" objRef="" propName="DiscrpAgID"/>
+                                                </BuiltinFnValue>
+                                                <EqualsRelation/>
+                                                <StaticValue datatype="integer" value="75"/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Strongly_Recommended_Layers/States/Mandatory/States - Attribute Validation - Country">
+                                <Metadata>
+                                    <Name>States - Attribute Validation - Country</Name>
+                                    <Description>Country:\nDescription: The name of a country represented by its two-letter ISO 3166-1 English country alpha-2 code elements in capital ASCII letters.\nDomain: Restricted to the two-letter designations provided in ISO 3166-1.\nExample: "US" for the United States of America; "CA" for Canada\n\npg 49</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:07.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:07.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="States" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="States" objRef="" propName="Country"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="States" objRef="" propName="Country"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="length">
+                                                    <DynamicValue classRef="States" objRef="" propName="Country"/>
+                                                </BuiltinFnValue>
+                                                <EqualsRelation/>
+                                                <StaticValue datatype="integer" value="2"/>
+                                            </RelationalPredicate>
+                                            <ExistsPredicate qualifier="exactly" n="1" classLabel="NG911_ValidValues_Table_World_Countries" objLabel="">
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="to_uppercase">
+                                                        <DynamicValue classRef="NG911_ValidValues_Table_World_Countries" objRef="" propName="Country"/>
+                                                    </BuiltinFnValue>
+                                                    <EqualsRelation/>
+                                                    <BuiltinFnValue fnName="to_uppercase">
+                                                        <DynamicValue classRef="States" objRef="" propName="Country"/>
+                                                    </BuiltinFnValue>
+                                                </RelationalPredicate>
+                                            </ExistsPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Strongly_Recommended_Layers/States/Mandatory/States - Attribute Validation - Global ID">
+                                <Metadata>
+                                    <Name>States - Attribute Validation - Global ID</Name>
+                                    <Description>State NENA Globally Unique ID:\nDescription: The NENA Globally Unique ID for each State (or its equivalent) Boundary. Each record in the States or Equivalents layer MUST have a globally unique ID. When coalescing data from other local 9-1-1 Authorities into the ECRF and LVF, this unique ID MUST continue to have only one occurrence. One way to accomplish this is to append the 9-1-1 Authorityâ€™s domain to the end of the â€œlocally unique IDâ€�.\nDomain: None \nExample: Feature ID 1 in the States or Equivalents layer would be represented as STATE1@911Authority_domain.state.us\n\npg 71</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:07.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:07.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="States" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="States" objRef="" propName="StateNGUID"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="States" objRef="" propName="StateNGUID"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="States" objRef="" propName="StateNGUID"/>
+                                                <NotEqualsRelation/>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <StaticValue datatype="string" value=""/>
+                                                </BuiltinFnValue>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="length">
+                                                    <DynamicValue classRef="States" objRef="" propName="StateNGUID"/>
+                                                </BuiltinFnValue>
+                                                <LessEqualsRelation/>
+                                                <StaticValue datatype="integer" value="254"/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Strongly_Recommended_Layers/States/Mandatory/States - Attribute Validation - State">
+                                <Metadata>
+                                    <Name>States - Attribute Validation - State</Name>
+                                    <Description>State \nDescription: The name of a state or state equivalent, represented by the two-letter abbreviation given in USPS Publication 28 [14], Appendix B. A state is a primary governmental division of the United States.\nDomain: ISO 3166-2 includes the same abbreviations as USPS Publication 28 [14], Appendix B, with the exception of the additional one for the nine minor uninhabited islands owned by the US: These abbreviations are also freely available at https://www.census.gov/geo/reference/ansi_statetables.html\nExample: TN; NM; OR\n\npg 71</Description>
+                                    <Comments>mkI - List of ORs\nmkII - Use Valid Values States table\nInitial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:08.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:08.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="States" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="States" objRef="" propName="State"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="States" objRef="" propName="State"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="length">
+                                                    <DynamicValue classRef="States" objRef="" propName="State"/>
+                                                </BuiltinFnValue>
+                                                <EqualsRelation/>
+                                                <StaticValue datatype="integer" value="2"/>
+                                            </RelationalPredicate>
+                                            <ExistsPredicate qualifier="exactly" n="1" classLabel="NG911_ValidValues_Table_States" objLabel="">
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="NG911_ValidValues_Table_States" objRef="" propName="State_Abbr"/>
+                                                    <EqualsRelation/>
+                                                    <BuiltinFnValue fnName="to_uppercase">
+                                                        <DynamicValue classRef="States" objRef="" propName="State"/>
+                                                    </BuiltinFnValue>
+                                                </RelationalPredicate>
+                                            </ExistsPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                        </RuleFolder>
+                        <RuleFolder>
+                            <Metadata>
+                                <Name>Optional</Name>
+                                <Created>
+                                    <UserDate date="2019-09-03T03:06:08.000Z"/>
+                                </Created>
+                                <LastEdited>
+                                    <UserDate date="2019-09-03T03:06:08.000Z" user="1Spatial"/>
+                                </LastEdited>
+                            </Metadata>
+                            <IsShortcut>false</IsShortcut>
+                            <Item id="RULE://Standard/NENA - Validations/Strongly_Recommended_Layers/States/Optional/States - Attribute - Validation - Effective">
+                                <Metadata>
+                                    <Name>States - Attribute - Validation - Effective</Name>
+                                    <Description>Effective Date:\nDescription: The date and time that the record is scheduled to take effect.\nDomain: Date and Time may be stored in the local database date/time format with the proviso that local time zone MUST be recorded and time MUST be recorded to a precision of at least 1 second and MAY be recorded to a precision of 0.1 second. If the local database date/time format does not meet these specifications, the database SHOULD record both the local date/time format and a string conforming to W3C dateTime format as described in XML Schema Part 2: Datatypes Second Edition [10].\nExample: (of a W3C dateTime with optional precision of .1 second)\n2017-02-18T02:30:00.1-05:00 (representing a record that will become active on February 18, 2017 at 2:30 and 0.1 seconds AM US Eastern Standard Time);\n2017-10-09T13:01:35.2-04:00 (representing a record that will become active on October 9, 2017 at 1:01 and 35.2 seconds PM US Eastern Daylight Time)\nNote: This field is used when time and date of a change is known. For example, the time and date an annexation takes effect.</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:08.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:08.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="States" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="States" objRef="" propName="Effective"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="States" objRef="" propName="Effective"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="States" objRef="" propName="Effective"/>
+                                                    <NotEqualsRelation/>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <StaticValue datatype="string" value=""/>
+                                                    </BuiltinFnValue>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Strongly_Recommended_Layers/States/Optional/States - Attribute - Validation - Expire">
+                                <Metadata>
+                                    <Name>States - Attribute - Validation - Expire</Name>
+                                    <Description>Expiration Date:\nDescription: The date and time when the information in the record is no longer considered valid.\nDomain: Date and Time may be stored in the local database date/time format with the proviso that local time zone MUST be recorded and time MUST be recorded to a precision of at least 1 second and MAY be recorded to a precision of 0.1 second. If the local database date/time format does not meet these specifications, the database SHOULD record both the local date/time format and a string conforming to W3C dateTime format as described in XML Schema Part 2: Datatypes Second Edition [10].\nExample: (of a W3C dateTime with optional precision of .1 second)\n2017-02-18T02:30:00-05:00.1 (representing a record that will expire and no longer be valid on February 18, 2017 at 2:30 and 0.1 seconds AM US Eastern Standard Time);\n2017-10-09T13:01:35.2-04:00 (representing a record that will expire and no longer be valid on October 9, 2017 at 1:01 and 35.2 seconds PM US Eastern Daylight Time)\nNote: This field is used when the time and date of a change is known. For example, the time and date an annexation takes effect and the previous boundary is retired.</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:08.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:08.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="States" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="States" objRef="" propName="Expire"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="States" objRef="" propName="Expire"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="States" objRef="" propName="Expire"/>
+                                                    <NotEqualsRelation/>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <StaticValue datatype="string" value=""/>
+                                                    </BuiltinFnValue>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                        </RuleFolder>
+                    </RuleFolder>
+                </RuleFolder>
+            </RuleFolder>
+        </RuleFolder>
+    </RuleFolder>
+</Backup>

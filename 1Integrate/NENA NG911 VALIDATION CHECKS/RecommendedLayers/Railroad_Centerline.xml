@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Backup xmlns="http://schema.onespatial.com/radius/studio/v2" xmlns:gml="http://www.opengis.net/gml">
+    <RuleFolder>
+        <Metadata>
+            <Name>RULE</Name>
+            <Created>
+                <UserDate date="2017-01-06T01:22:42.000Z" user="Radius Studio"/>
+            </Created>
+            <LastEdited>
+                <UserDate date="2017-01-06T01:22:42.000Z" user="Radius Studio"/>
+            </LastEdited>
+        </Metadata>
+        <IsShortcut>false</IsShortcut>
+        <RuleFolder>
+            <Metadata>
+                <Name>Standard</Name>
+                <Created>
+                    <UserDate date="2017-01-03T01:13:12.000Z" user="1Spatial"/>
+                </Created>
+                <LastEdited>
+                    <UserDate date="2019-02-05T06:30:18.000Z" user="1Spatial"/>
+                </LastEdited>
+            </Metadata>
+            <IsShortcut>false</IsShortcut>
+            <RuleFolder>
+                <Metadata>
+                    <Name>NENA - Validations</Name>
+                    <Comments>Branch: master\nRecent Commits:\n</Comments>
+                    <Created>
+                        <UserDate date="2019-09-03T03:06:01.000Z"/>
+                    </Created>
+                    <LastEdited>
+                        <UserDate date="2019-09-03T03:06:01.000Z" user="1Spatial"/>
+                    </LastEdited>
+                </Metadata>
+                <IsShortcut>false</IsShortcut>
+                <RuleFolder>
+                    <Metadata>
+                        <Name>Recommended_Layers</Name>
+                        <Created>
+                            <UserDate date="2019-09-03T03:06:01.000Z"/>
+                        </Created>
+                        <LastEdited>
+                            <UserDate date="2019-09-03T03:06:01.000Z" user="1Spatial"/>
+                        </LastEdited>
+                    </Metadata>
+                    <IsShortcut>false</IsShortcut>
+                    <RuleFolder>
+                        <Metadata>
+                            <Name>Railroad_Centerlines</Name>
+                            <Created>
+                                <UserDate date="2019-09-03T03:06:02.000Z"/>
+                            </Created>
+                            <LastEdited>
+                                <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                            </LastEdited>
+                        </Metadata>
+                        <IsShortcut>false</IsShortcut>
+                        <RuleFolder>
+                            <Metadata>
+                                <Name>Conditional</Name>
+                                <Created>
+                                    <UserDate date="2019-09-03T03:06:02.000Z"/>
+                                </Created>
+                                <LastEdited>
+                                    <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                </LastEdited>
+                            </Metadata>
+                            <IsShortcut>false</IsShortcut>
+                            <Item id="RULE://Standard/NENA - Validations/Recommended_Layers/Railroad_Centerlines/Conditional/Rail - Attribute - Validation - RLOP">
+                                <Metadata>
+                                    <Name>Rail - Attribute - Validation - RLOP</Name>
+                                    <Description>Rail Line Operator:\nDescription: The name of the operator of the rail line or the primary rail company with rights to use the rail line.\nDomain: None\nExample: UP; CSX\n\npg 65</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Railroad_Centerlines" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Railroad_Centerlines" objRef="" propName="RLOP"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Railroad_Centerlines" objRef="" propName="RLOP"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Railroad_Centerlines" objRef="" propName="RLOP"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="100"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Recommended_Layers/Railroad_Centerlines/Conditional/Rail - Attribute - Validation - RLOWN">
+                                <Metadata>
+                                    <Name>Rail - Attribute - Validation - RLOWN</Name>
+                                    <Description>Rail Line Owner:\nDescription: The name of the owner of the rail right-of-way.\nDomain: None\nExample: CSX; South Carolina Central Railroad\n\npg 65</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Railroad_Centerlines" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Railroad_Centerlines" objRef="" propName="RLOWN"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Railroad_Centerlines" objRef="" propName="RLOWN"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Railroad_Centerlines" objRef="" propName="RLOWN"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="100"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                        </RuleFolder>
+                        <RuleFolder>
+                            <Metadata>
+                                <Name>Mandatory</Name>
+                                <Created>
+                                    <UserDate date="2019-09-03T03:06:02.000Z"/>
+                                </Created>
+                                <LastEdited>
+                                    <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                </LastEdited>
+                            </Metadata>
+                            <IsShortcut>false</IsShortcut>
+                            <Item id="RULE://Standard/NENA - Validations/Recommended_Layers/Railroad_Centerlines/Mandatory/Rail - Attribute - Validation - DateUpdate">
+                                <Metadata>
+                                    <Name>Rail - Attribute - Validation - DateUpdate</Name>
+                                    <Description>Date Updated:\nDescription: The date and time that the record was created or last modified. This value\nMUST be populated upon modifications to attributes, geometry, or both.\nDomain: Date and Time may be stored in the local database date/time format with the proviso that local time zone MUST be recorded and time MUST be recorded to a precision of at least 1 second and MAY be recorded to a precision of 0.1 second. If the local database date/time format does not meet these specifications, the database SHOULD record both the local date/time format and a string conforming to W3C dateTime format as described in XML Schema Part 2: Datatypes Second Edition [10].\nExample: (of a W3C dateTime with optional precision of .1 second)\n2017-12-21T17:58.03.1-05:00 (representing a record updated on December 21, 2017 at 5:58 and 3.1 seconds PM US Eastern Standard Time); 2017-07-11T08:31:15.2-04:00 (representing a record updated on July 11, 2017 at 8:31\nand 15.2 seconds AM US Eastern Daylight Time)</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Railroad_Centerlines" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Railroad_Centerlines" objRef="" propName="DateUpdate"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="Railroad_Centerlines" objRef="" propName="DateUpdate"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Railroad_Centerlines" objRef="" propName="DateUpdate"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Recommended_Layers/Railroad_Centerlines/Mandatory/Rail - Attribute - Validation - DiscrpAgID">
+                                <Metadata>
+                                    <Name>Rail - Attribute - Validation - DiscrpAgID</Name>
+                                    <Description>Discrepancy Agency ID:\nDescription: Agency that receives a Discrepancy Report (DR), should a discrepancy be discovered, and will take responsibility for ensuring discrepancy resolution. This may or may not be the same as the 9-1-1 Authority. This MUST be represented by a domain name that is an Agency Identifier as defined in the NENA Master Glossary.\nDomain: None\nExample: Vermont911.vt.us.gov; nct911.dst.tx.us\n\npg 51</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Railroad_Centerlines" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Railroad_Centerlines" objRef="" propName="DiscrpAgID"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="Railroad_Centerlines" objRef="" propName="DiscrpAgID"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Railroad_Centerlines" objRef="" propName="DiscrpAgID"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="length">
+                                                    <DynamicValue classRef="Railroad_Centerlines" objRef="" propName="DiscrpAgID"/>
+                                                </BuiltinFnValue>
+                                                <LessEqualsRelation/>
+                                                <StaticValue datatype="integer" value="75"/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Recommended_Layers/Railroad_Centerlines/Mandatory/Rail - Attribute - Validation - Global ID">
+                                <Metadata>
+                                    <Name>Rail - Attribute - Validation - Global ID</Name>
+                                    <Description>Rail Segment NENA Globally Unique ID:\nDescription: The NENA Globally Unique ID for each rail segment. Each record in the Railroad Centerlines layer MUST have a globally unique ID. One way to accomplish this is to append the 9-1-1 Authorityâ€™s domain to the end of the â€œlocally unique IDâ€�.\nDomain: None\nExample: C567NOS@911Authority_domain.state.us; RAIL1234156@911Authority_domain.state.us\n\npg 66</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Railroad_Centerlines" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Railroad_Centerlines" objRef="" propName="RS_NGUID"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Railroad_Centerlines" objRef="" propName="RS_NGUID"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="Railroad_Centerlines" objRef="" propName="RS_NGUID"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="length">
+                                                    <DynamicValue classRef="Railroad_Centerlines" objRef="" propName="RS_NGUID"/>
+                                                </BuiltinFnValue>
+                                                <LessEqualsRelation/>
+                                                <StaticValue datatype="integer" value="254"/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                        </RuleFolder>
+                        <RuleFolder>
+                            <Metadata>
+                                <Name>Optional</Name>
+                                <Created>
+                                    <UserDate date="2019-09-03T03:06:02.000Z"/>
+                                </Created>
+                                <LastEdited>
+                                    <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                </LastEdited>
+                            </Metadata>
+                            <IsShortcut>false</IsShortcut>
+                            <Item id="RULE://Standard/NENA - Validations/Recommended_Layers/Railroad_Centerlines/Optional/Rail - Attribute - Validation - RLNAME">
+                                <Metadata>
+                                    <Name>Rail - Attribute - Validation - RLNAME</Name>
+                                    <Description>Rail Line Name:\nDescription: The word or phrase that constitutes the distinctive designation of the rail line.\nDomain: None\nExample: Chester to Rock Hill; Florence to Kingstree to Charleston\n\npg 65</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Railroad_Centerlines" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Railroad_Centerlines" objRef="" propName="RLNAME"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Railroad_Centerlines" objRef="" propName="RLNAME"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Railroad_Centerlines" objRef="" propName="RLNAME"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Railroad_Centerlines" objRef="" propName="RLNAME"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="100"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Recommended_Layers/Railroad_Centerlines/Optional/Rail - Attribute - Validation - RMPH">
+                                <Metadata>
+                                    <Name>Rail - Attribute - Validation - RMPH</Name>
+                                    <Description>Rail Mile Post High:\nDescription: The ending linear reference of the named rail line.\nDomain: None\nExample: 120, 257.33\n\npg 65</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Railroad_Centerlines" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Railroad_Centerlines" objRef="" propName="RMPH"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Railroad_Centerlines" objRef="" propName="RMPH"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Railroad_Centerlines" objRef="" propName="RMPH"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Recommended_Layers/Railroad_Centerlines/Optional/Rail - Attribute - Validation - RMPL">
+                                <Metadata>
+                                    <Name>Rail - Attribute - Validation - RMPL</Name>
+                                    <Description>Rail Mile Post Low:\nDescription: The beginning linear reference of the named rail line.\nDomain: None\nExample: 5.68; 14.0\n\npg 65</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Railroad_Centerlines" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Railroad_Centerlines" objRef="" propName="RMPL"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Railroad_Centerlines" objRef="" propName="RMPL"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Railroad_Centerlines" objRef="" propName="RMPL"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                        </RuleFolder>
+                    </RuleFolder>
+                </RuleFolder>
+            </RuleFolder>
+        </RuleFolder>
+    </RuleFolder>
+</Backup>

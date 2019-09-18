@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Backup xmlns="http://schema.onespatial.com/radius/studio/v2" xmlns:gml="http://www.opengis.net/gml">
+    <RuleFolder>
+        <Metadata>
+            <Name>RULE</Name>
+            <Created>
+                <UserDate date="2017-01-06T01:22:42.000Z" user="Radius Studio"/>
+            </Created>
+            <LastEdited>
+                <UserDate date="2017-01-06T01:22:42.000Z" user="Radius Studio"/>
+            </LastEdited>
+        </Metadata>
+        <IsShortcut>false</IsShortcut>
+        <RuleFolder>
+            <Metadata>
+                <Name>Standard</Name>
+                <Created>
+                    <UserDate date="2017-01-03T01:13:12.000Z" user="1Spatial"/>
+                </Created>
+                <LastEdited>
+                    <UserDate date="2019-02-05T06:30:18.000Z" user="1Spatial"/>
+                </LastEdited>
+            </Metadata>
+            <IsShortcut>false</IsShortcut>
+            <RuleFolder>
+                <Metadata>
+                    <Name>NENA - Validations</Name>
+                    <Comments>Branch: master\nRecent Commits:\n</Comments>
+                    <Created>
+                        <UserDate date="2019-09-03T03:06:01.000Z"/>
+                    </Created>
+                    <LastEdited>
+                        <UserDate date="2019-09-03T03:06:01.000Z" user="1Spatial"/>
+                    </LastEdited>
+                </Metadata>
+                <IsShortcut>false</IsShortcut>
+                <RuleFolder>
+                    <Metadata>
+                        <Name>Recommended_Layers</Name>
+                        <Created>
+                            <UserDate date="2019-09-03T03:06:01.000Z"/>
+                        </Created>
+                        <LastEdited>
+                            <UserDate date="2019-09-03T03:06:01.000Z" user="1Spatial"/>
+                        </LastEdited>
+                    </Metadata>
+                    <IsShortcut>false</IsShortcut>
+                    <RuleFolder>
+                        <Metadata>
+                            <Name>Mile_Marker_Location</Name>
+                            <Created>
+                                <UserDate date="2019-09-03T03:06:02.000Z"/>
+                            </Created>
+                            <LastEdited>
+                                <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                            </LastEdited>
+                        </Metadata>
+                        <IsShortcut>false</IsShortcut>
+                        <RuleFolder>
+                            <Metadata>
+                                <Name>Conditional</Name>
+                                <Created>
+                                    <UserDate date="2019-09-03T03:06:02.000Z"/>
+                                </Created>
+                                <LastEdited>
+                                    <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                </LastEdited>
+                            </Metadata>
+                            <IsShortcut>false</IsShortcut>
+                            <Item id="RULE://Standard/NENA - Validations/Recommended_Layers/Mile_Marker_Location/Conditional/MML - Attribute - Validation - MileM_Type">
+                                <Metadata>
+                                    <Name>MML - Attribute - Validation - MileM_Type</Name>
+                                    <Description>Mile Post Type:\nDescription: The type of mile marker\nDomain: None\nExample: Road; Waterway; Beach; Trail\n\npg 60</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Mile_Marker_Location" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Type"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Type"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Type"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <OrPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="trim">
+                                                            <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Type"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <StaticValue datatype="string" value="Road"/>
+                                                    </RelationalPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="trim">
+                                                            <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Type"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <StaticValue datatype="string" value="Route"/>
+                                                    </RelationalPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="trim">
+                                                            <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Type"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <StaticValue datatype="string" value="Way"/>
+                                                    </RelationalPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="trim">
+                                                            <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Type"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <StaticValue datatype="string" value="Waterway"/>
+                                                    </RelationalPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="trim">
+                                                            <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Type"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <StaticValue datatype="string" value="Avenue"/>
+                                                    </RelationalPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="trim">
+                                                            <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Type"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <StaticValue datatype="string" value="Beach"/>
+                                                    </RelationalPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="trim">
+                                                            <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Type"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <StaticValue datatype="string" value="Trail"/>
+                                                    </RelationalPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="trim">
+                                                            <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Type"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <StaticValue datatype="string" value="Alley"/>
+                                                    </RelationalPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="trim">
+                                                            <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Type"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <StaticValue datatype="string" value="Backroad"/>
+                                                    </RelationalPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="trim">
+                                                            <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Type"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <StaticValue datatype="string" value="Lane"/>
+                                                    </RelationalPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="trim">
+                                                            <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Type"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <StaticValue datatype="string" value="Boulevard"/>
+                                                    </RelationalPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="trim">
+                                                            <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Type"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <StaticValue datatype="string" value="Byway"/>
+                                                    </RelationalPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="trim">
+                                                            <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Type"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <StaticValue datatype="string" value="Crescent"/>
+                                                    </RelationalPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="trim">
+                                                            <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Type"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <StaticValue datatype="string" value="Landing"/>
+                                                    </RelationalPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="trim">
+                                                            <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Type"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <StaticValue datatype="string" value="Court"/>
+                                                    </RelationalPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="trim">
+                                                            <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Type"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <StaticValue datatype="string" value="Frontage"/>
+                                                    </RelationalPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="trim">
+                                                            <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Type"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <StaticValue datatype="string" value="Highway"/>
+                                                    </RelationalPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="trim">
+                                                            <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Type"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <StaticValue datatype="string" value="Parkway"/>
+                                                    </RelationalPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="trim">
+                                                            <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Type"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <StaticValue datatype="string" value="Place"/>
+                                                    </RelationalPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="trim">
+                                                            <BuiltinFnValue fnName="trim">
+                                                                <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Type"/>
+                                                            </BuiltinFnValue>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <StaticValue datatype="string" value="Street"/>
+                                                    </RelationalPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="trim">
+                                                            <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Type"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <StaticValue datatype="string" value="Turnpike"/>
+                                                    </RelationalPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="trim">
+                                                            <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Type"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <StaticValue datatype="string" value="Expressway"/>
+                                                    </RelationalPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="trim">
+                                                            <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Type"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <StaticValue datatype="string" value="Freeway"/>
+                                                    </RelationalPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="trim">
+                                                            <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Type"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <StaticValue datatype="string" value="Interstate"/>
+                                                    </RelationalPredicate>
+                                                </OrPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Recommended_Layers/Mile_Marker_Location/Conditional/MML - Attribute - Validation - MileM_Unit">
+                                <Metadata>
+                                    <Name>MML - Attribute - Validation - MileM_Unit</Name>
+                                    <Description>Mile Post Unit of Measurement:\nDescription: Unit of measurement used for mile post value\nDomain: Standardized units of measure\nExample: miles; nautical miles; feet; kilometers\n\npg 60</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Mile_Marker_Location" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Unit"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Unit"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <OrPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="trim">
+                                                            <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Unit"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <StaticValue datatype="string" value="meters"/>
+                                                    </RelationalPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="trim">
+                                                            <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Unit"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <StaticValue datatype="string" value="kilometers"/>
+                                                    </RelationalPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="trim">
+                                                            <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Unit"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <StaticValue datatype="string" value="miles"/>
+                                                    </RelationalPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="trim">
+                                                            <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Unit"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <StaticValue datatype="string" value="feet"/>
+                                                    </RelationalPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="trim">
+                                                            <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Unit"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <StaticValue datatype="string" value="nautical miles"/>
+                                                    </RelationalPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="trim">
+                                                            <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Unit"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <StaticValue datatype="string" value="inches"/>
+                                                    </RelationalPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="trim">
+                                                            <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Unit"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <StaticValue datatype="string" value="yards"/>
+                                                    </RelationalPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="trim">
+                                                            <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Unit"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <StaticValue datatype="string" value="leagues"/>
+                                                    </RelationalPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="trim">
+                                                            <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Unit"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <StaticValue datatype="string" value="millimeter"/>
+                                                    </RelationalPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="trim">
+                                                            <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Unit"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <StaticValue datatype="string" value="centimeter"/>
+                                                    </RelationalPredicate>
+                                                </OrPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                        </RuleFolder>
+                        <RuleFolder>
+                            <Metadata>
+                                <Name>Mandatory</Name>
+                                <Created>
+                                    <UserDate date="2019-09-03T03:06:02.000Z"/>
+                                </Created>
+                                <LastEdited>
+                                    <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                </LastEdited>
+                            </Metadata>
+                            <IsShortcut>false</IsShortcut>
+                            <Item id="RULE://Standard/NENA - Validations/Recommended_Layers/Mile_Marker_Location/Mandatory/MML - Attribute - Validation - DateUpdate">
+                                <Metadata>
+                                    <Name>MML - Attribute - Validation - DateUpdate</Name>
+                                    <Description>Date Updated:\nDescription: The date and time that the record was created or last modified. This value\nMUST be populated upon modifications to attributes, geometry, or both.\nDomain: Date and Time may be stored in the local database date/time format with the proviso that local time zone MUST be recorded and time MUST be recorded to a precision of at least 1 second and MAY be recorded to a precision of 0.1 second. If the local database date/time format does not meet these specifications, the database SHOULD record both the local date/time format and a string conforming to W3C dateTime format as described in XML Schema Part 2: Datatypes Second Edition [10].\nExample: (of a W3C dateTime with optional precision of .1 second)\n2017-12-21T17:58.03.1-05:00 (representing a record updated on December 21, 2017 at 5:58 and 3.1 seconds PM US Eastern Standard Time); 2017-07-11T08:31:15.2-04:00 (representing a record updated on July 11, 2017 at 8:31\nand 15.2 seconds AM US Eastern Daylight Time)</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Mile_Marker_Location" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="DateUpdate"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="DateUpdate"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="DateUpdate"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Recommended_Layers/Mile_Marker_Location/Mandatory/MML - Attribute - Validation - DiscrpAgID">
+                                <Metadata>
+                                    <Name>MML - Attribute - Validation - DiscrpAgID</Name>
+                                    <Description>Discrepancy Agency ID:\nDescription: Agency that receives a Discrepancy Report (DR), should a discrepancy be discovered, and will take responsibility for ensuring discrepancy resolution. This may or may not be the same as the 9-1-1 Authority. This MUST be represented by a domain name that is an Agency Identifier as defined in the NENA Master Glossary.\nDomain: None\nExample: Vermont911.vt.us.gov; nct911.dst.tx.us\n\npg 51</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Mile_Marker_Location" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="DiscrpAgID"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="DiscrpAgID"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="DiscrpAgID"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="length">
+                                                    <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="DiscrpAgID"/>
+                                                </BuiltinFnValue>
+                                                <LessEqualsRelation/>
+                                                <StaticValue datatype="integer" value="75"/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Recommended_Layers/Mile_Marker_Location/Mandatory/MML - Attribute - Validation - Global ID">
+                                <Metadata>
+                                    <Name>MML - Attribute - Validation - Global ID</Name>
+                                    <Description>Mile Post NENA Globally Unique ID:\nDescription: The NENA Globally Unique ID for each Mile Marker Location. Each record in the Mile Marker Location layer MUST have a globally unique ID. One way to accomplish this is to append the 9-1-1 Authorityâ€™s domain to the end of the â€œlocally unique IDâ€�.\nDomain: None\nExample: Feature ID 5214 in the Mile Marker Location layer would be represented as MP5214@911Authority_domain.state.us\n\npg 60</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Mile_Marker_Location" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileMNGUID"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileMNGUID"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileMNGUID"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="length">
+                                                    <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileMNGUID"/>
+                                                </BuiltinFnValue>
+                                                <EqualsRelation/>
+                                                <StaticValue datatype="integer" value="254"/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Recommended_Layers/Mile_Marker_Location/Mandatory/MML - Attribute - Validation - MileMValue">
+                                <Metadata>
+                                    <Name>MML - Attribute - Validation - MileMValue</Name>
+                                    <Description>Date Updated:\nDescription: The date and time that the record was created or last modified. This value\nMUST be populated upon modifications to attributes, geometry, or both.\nDomain: Date and Time may be stored in the local database date/time format with the proviso that local time zone MUST be recorded and time MUST be recorded to a precision of at least 1 second and MAY be recorded to a precision of 0.1 second. If the local database date/time format does not meet these specifications, the database SHOULD record both the local date/time format and a string conforming to W3C dateTime format as described in XML Schema Part 2: Datatypes Second Edition [10].\nExample: (of a W3C dateTime with optional precision of .1 second)\n2017-12-21T17:58.03.1-05:00 (representing a record updated on December 21, 2017 at 5:58 and 3.1 seconds PM US Eastern Standard Time); 2017-07-11T08:31:15.2-04:00 (representing a record updated on July 11, 2017 at 8:31\nand 15.2 seconds AM US Eastern Daylight Time)</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Mile_Marker_Location" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileMValue"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileMValue"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileMValue"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Recommended_Layers/Mile_Marker_Location/Mandatory/MML - Attribute - Validation - MileM_Ind">
+                                <Metadata>
+                                    <Name>MML - Attribute - Validation - MileM_Ind</Name>
+                                    <Description>Mile Post Indicator:\nDescription: Indicator of the type of mile post measurement.\nDomain: P for (Posted); or L for (Logical/calculated)\nExample: P, L\n\npg 60</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Mile_Marker_Location" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Rte"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <OrPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Ind"/>
+                                                    <EqualsRelation/>
+                                                    <StaticValue datatype="string" value="P"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Ind"/>
+                                                    <EqualsRelation/>
+                                                    <StaticValue datatype="string" value="L"/>
+                                                </RelationalPredicate>
+                                            </OrPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Recommended_Layers/Mile_Marker_Location/Mandatory/MML - Attribute - Validation - MileM_Rte">
+                                <Metadata>
+                                    <Name>MML - Attribute - Validation - MileM_Rte</Name>
+                                    <Description>Street Name\nDescription: The official name of the road, usually defined by the lowest jurisdictional authority (e.g. city). The street name does not include any street types, directionals, or modifiers.\nDomain: None\nExample: â€œFifthâ€� in â€œFifth Avenueâ€�\nNote: This element is a conditional element. For more details, please see NENA Next Generation 9-1-1 (NG9-1-1) United States Civic Location Data Exchange Format (CLDXF) Standard (NENA-STA-004) [2].\n\npg 72</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Mile_Marker_Location" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Rte"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Rte"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Rte"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="length">
+                                                    <DynamicValue classRef="Mile_Marker_Location" objRef="" propName="MileM_Rte"/>
+                                                </BuiltinFnValue>
+                                                <GreaterRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                        </RuleFolder>
+                    </RuleFolder>
+                </RuleFolder>
+            </RuleFolder>
+        </RuleFolder>
+    </RuleFolder>
+</Backup>

@@ -1,0 +1,2213 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Backup xmlns="http://schema.onespatial.com/radius/studio/v2" xmlns:gml="http://www.opengis.net/gml">
+    <RuleFolder>
+        <Metadata>
+            <Name>RULE</Name>
+            <Created>
+                <UserDate date="2017-01-06T01:22:42.000Z" user="Radius Studio"/>
+            </Created>
+            <LastEdited>
+                <UserDate date="2017-01-06T01:22:42.000Z" user="Radius Studio"/>
+            </LastEdited>
+        </Metadata>
+        <IsShortcut>false</IsShortcut>
+        <RuleFolder>
+            <Metadata>
+                <Name>Standard</Name>
+                <Created>
+                    <UserDate date="2017-01-03T01:13:12.000Z" user="1Spatial"/>
+                </Created>
+                <LastEdited>
+                    <UserDate date="2019-02-05T06:30:18.000Z" user="1Spatial"/>
+                </LastEdited>
+            </Metadata>
+            <IsShortcut>false</IsShortcut>
+            <RuleFolder>
+                <Metadata>
+                    <Name>NENA - Validations</Name>
+                    <Comments>Branch: master\nRecent Commits:\n</Comments>
+                    <Created>
+                        <UserDate date="2019-09-03T03:06:01.000Z"/>
+                    </Created>
+                    <LastEdited>
+                        <UserDate date="2019-09-03T03:06:01.000Z" user="1Spatial"/>
+                    </LastEdited>
+                </Metadata>
+                <IsShortcut>false</IsShortcut>
+                <RuleFolder>
+                    <Metadata>
+                        <Name>Required_Layers</Name>
+                        <Created>
+                            <UserDate date="2019-09-03T03:06:02.000Z"/>
+                        </Created>
+                        <LastEdited>
+                            <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                        </LastEdited>
+                    </Metadata>
+                    <IsShortcut>false</IsShortcut>
+                    <RuleFolder>
+                        <Metadata>
+                            <Name>Site_Structure_Address_Points</Name>
+                            <Created>
+                                <UserDate date="2019-09-03T03:06:06.000Z"/>
+                            </Created>
+                            <LastEdited>
+                                <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                            </LastEdited>
+                        </Metadata>
+                        <IsShortcut>false</IsShortcut>
+                        <RuleFolder>
+                            <Metadata>
+                                <Name>Conditional</Name>
+                                <Created>
+                                    <UserDate date="2019-09-03T03:06:06.000Z"/>
+                                </Created>
+                                <LastEdited>
+                                    <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                </LastEdited>
+                            </Metadata>
+                            <IsShortcut>false</IsShortcut>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Conditional/SSAP - Attribute - Validation -  St_Name">
+                                <Metadata>
+                                    <Name>SSAP - Attribute - Validation -  St_Name</Name>
+                                    <Description>Street Name:\nDescription: The official name of the road, usually defined by the lowest jurisdictional authority (e.g. city). The street name does not include any street types, directionals, or modifiers.\nDomain: None\nExample: â€œFifthâ€� in â€œFifth Avenueâ€�\nNote: This element is a conditional element. For more details, please see NENA Next Generation 9-1-1 (NG9-1-1) United States Civic Location Data Exchange Format (CLDXF) Standard (NENA-STA-004) [2].\n\npg 72</Description>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_Name"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_Name"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_Name"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_Name"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="60"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Conditional/SSAP_Attribute_Validation_AddCode">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_AddCode</Name>
+                                    <Description>Additional Code:\nDescription: A code that specifies a geographic area. Used in Canada to hold a Standard Geographical Classification code; it differentiates two municipalities with the same name in a province that does not have counties.\nDomain: Statistics Canada, Standard Geographical Classification 2011, Volume I, Statistical Area Classification by Province and Territory â€“ Variant of SGC 2011\nhttp://www.statcan.gc.ca/subjects-sujets/standard-norme/sgc-cgt/2011/index-indexe-eng.htm\nExample: 3318013; 55091\n\npg 43</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="AddCode"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="AddCode"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="AddCode"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="AddCode"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="6"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Conditional/SSAP_Attribute_Validation_AddDataURI">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_AddDataURI</Name>
+                                    <Description>Additional Data URI:\nDescription: URI(s) for additional data associated with the site/structure address point.This attribute is contained in the Site/Structure Address Points layer and will define the Service URI of additional information about a location, including building information (blueprints, contact info, floor plans, etc.).\nDomain: List of one or more URIs\nExample: https://addl68603.example.com\n\npg 44</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="AddDataURI"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="AddDataURI"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="AddDataURI"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="AddDataURI"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="254"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Conditional/SSAP_Attribute_Validation_AddNum_Pre">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_AddNum_Pre</Name>
+                                    <Description>Address Number Prefix:\nDescription: An extension of the Address Number that precedes it and further Identifies a location along a thoroughfare or within a defined area.\nDomain: None\nExample: â€œ75-â€� in â€œ75-6214 Kailua Placeâ€�; â€œ3W2N-â€� in â€œ3W2N-4551â€�\nNote: The Address Number Prefix contains any alphanumeric characters, punctuation, and spaces preceding the Address Number. This element is a conditional element. For more details, please see NENA Next Generation      \n9-1-1 (NG9-1-1) United States Civic\nLocation Data Exchange Format (CLDXF) Standard (NENA-STA-004) [2].\n\npg 44</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="AddNum_Pre"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="AddNum_Pre"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="AddNum_Pre"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="AddNum_Pre"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="15"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Conditional/SSAP_Attribute_Validation_AddNum_Suf">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_AddNum_Suf</Name>
+                                    <Description>Address Number Suffix:\nDescription: An extension of the Address number that follows it and further identifies a location along a thoroughfare or within a defined area. \nDomain: None\nExample: â€œBâ€� in â€œ223B Jay Avenueâ€� or "1/2" in 119 1/2 Elm Streetâ€�\nNote: This element is a conditional element. For more details, please see NENA Next Generation 9-1-1 (NG9-1-1) United States Civic Location Data Exchange Format (CLDXF) Standard (NENA-STA-004) [2]\n\npg 44</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="AddNum_Suf"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="AddNum_Suf"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="AddNum_Suf"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="AddNum_Suf"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="15"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Conditional/SSAP_Attribute_Validation_Add_Number">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_Add_Number</Name>
+                                    <Description>Address Number:\nDescription: The numeric identifier of a location along a thoroughfare or within a defined community.\nDomain: Whole numbers from 0 to 999999\nExample: â€œ1600â€� in â€œ1600 Pennsylvania Avenueâ€�\nNote: The Address Number MUST be a whole number. This element is a conditional element. For more details, please see NENA Next Generation 9-1-1 (NG9-1-1) United States Civic Location Data Exchange Format (CLDXF) Standard (NENA-STA-004) [2].\n\npg 44 </Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Add_Number"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Add_Number"/>
+                                                    <GreaterRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Add_Number"/>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="999999"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Conditional/SSAP_Attribute_Validation_ESN">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_ESN</Name>
+                                    <Description>ESN:\nDescription: A 3-5 character alphanumeric string that represents an Emergency Service Zone (ESZ).\nDomain: Characters from 000 to 99999\nExample: 54321; 120; 001\nNote: An Emergency Service Zone (ESZ) is not the same as an Emergency Service Boundary as outlined in this document. ESZ is used for 10-digit routing in Legacy Systems\nand is not used in a full NG9-1-1 implementation.\n\npg 53</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="ESN"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="ESN"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="ESN"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="ESN"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="5"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Conditional/SSAP_Attribute_Validation_LSt_Name">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_LSt_Name</Name>
+                                    <Description>Legacy Street Name:\nDescription: The street name field as it would appear in the MSAG, as assigned by the\nlocal addressing authority.\nDomain: None\nExample: â€œSTATEâ€� in â€œSTATE STâ€�; â€œELMWOODâ€� in â€œN ELMWOOD AVEâ€�\nNote: Legacy Street Name and the additional Legacy Street Name Parts (Legacy Street Name Post Directional, Legacy Street Name Pre Directional, and Legacy Street NameType), are included in the GIS Data Model to provide backward compatibility with legacy map displays and Computer Aided Dispatch (CAD) systems. These fields should be used to reflect attribute parsing that ensures the continuing function of existing systems. \n\npg 58</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="LSt_Name"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="LSt_Name"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="LSt_Name"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="LSt_Name"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="75"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Conditional/SSAP_Attribute_Validation_LSt_PosDir">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_LSt_PosDir</Name>
+                                    <Description>Legacy Street Name Post Directional:\nDescription: The trailing street direction suffix as it previously existed prior to the adoption of the NG9-1-1 Data Model as assigned by the local addressing authority.\nDomain: N, S, E, W, NE, NW, SE, SW\nExample: â€œEâ€� in â€œCHURCH ST Eâ€�\n\npg 58</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="LSt_PosDir"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="LSt_PosDir"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="LSt_PosDir"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="LSt_PosDir"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="2"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Conditional/SSAP_Attribute_Validation_LSt_PreDir">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_LSt_PreDir</Name>
+                                    <Description>Legacy Street Name Pre Directional:\nDescription: The leading street direction prefix as it previously existed prior to the adoption of the NG9-1-1 Data Model as assigned by the local addressing authority.\nDomain: N, S, E, W, NE, NW, SE, SW\nExample: â€œSâ€� in â€œS PINE AVEâ€�\n\npg 59</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="LSt_PreDir"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="LSt_PreDir"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="LSt_PreDir"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="LSt_PreDir"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="2"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Conditional/SSAP_Attribute_Validation_LSt_Type">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_LSt_Type</Name>
+                                    <Description>Legacy Street Name Type:\nDescription: The valid street abbreviation as it previously existed prior to the adoption of the NG9-1-1 Data Model as assigned by the local addressing authority.\nDomain: As it existed prior to the adoption of the NG9-1-1 Data Model; MAY be blank\nExample: â€œSTâ€� for â€œSTREET,â€� â€œSTRâ€� for â€œSTREET,â€� â€œBLVDâ€� for â€œBOULEVARD,â€� â€œAVEâ€� for â€œAVENUE,â€� â€œTRACEâ€� for â€œTRACEâ€� \n\npg 59</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="LSt_Type"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="LSt_Type"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="LSt_Type"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="LSt_Type"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="4"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Conditional/SSAP_Attribute_Validation_LandmkName">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_LandmkName</Name>
+                                    <Description>Complete Landmark Name:\nDescription: The name by which a prominent site/structure is publicly known.\nDomain: None\nExample: Empire State Building; The Alamo; South Central High School; Kirkwood Mall; James A Haley Veterans Hospital; University of South Florida Sun Dome\nNote: Landmarks may or may not be associated with a civic address. There are two landmark name elements: Landmark Name Part and Complete Landmark Name. Within a record, Landmark Name Part MAY occur multiple times, while Complete Landmark Name MAY occur only once. When a landmark is denoted by multiple names in a series (such as â€œUniversity of South Floridaâ€� and â€œSun Dome,â€� an arena on the university campus), the Landmark Name Part element holds the separate individual names, and the Complete Landmark Name holds the complete combination. The Landmark Name Part element also allows specification of the order in which the separate names SHOULD be\ncombined into the complete name. This element is a conditional element. For more details, please see NENA Next Generation 9-1-1 (NG9-1-1) United States Civic Location Data Exchange Format (CLDXF) Standard (NENA-STA-004) [2].\n\npg 49</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="LandmkName"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="LandmkName"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="LandmkName"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="LandmkName"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="150"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Conditional/SSAP_Attribute_Validation_MSAGComm">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_MSAGComm</Name>
+                                    <Description>MSAG Community Name:\nDescription: The Community name associated with an address as given in the MSAG and may or may not be the same as the Community Name assigned by the United States Postal Service (USPS).\nDomain: None\nExample: Cypress; Spring; Austin\nNote: Used in Legacy Systems and is not used in a full NG9-1-1 implementation.\n\npg 60</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="MSAGComm"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="MSAGComm"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="MSAGComm"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="MSAGComm"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="30"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Conditional/SSAP_Attribute_Validation_Mile_Post">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_Mile_Post</Name>
+                                    <Description>Mile Post:\nDescription: A distance travelled along a route such as a road or highway, typically indicated by a milepost sign. There is typically a post or other marker indicating the distance in miles/kilometers from or to a given point.\nDomain: None\nExample: Milepost 13; Mile Marker 327.5, Station 101 North\nNote: Mile post numbers, which may or may not be an actual mile post distance, are useful for specifying locations along interstate highways, recreational trails, navigable waterways and other unaddressed routes, as well as stretches of county, state, federal, and other routes where distance measurements are posted. Mile post numbers are a numeric measurement from a beginning point and MAY be used in place of, or in addition to, Address Numbers.\nThis element is a conditional element. Including it as a conditional field within the Site/Structure Address Points layer allows for another means of location verification, particularly at the PSAP level. Including the field allows for matching an Address, assigned by an Addressing Authority using the local addressing interval, to the Mile Marker. It should be noted that Mile Markers may not be placed at the exact mile intervals; due to post placement issues such as underground rock ledges, bridges, etc. Tying an Address to the Mile Maker reduces potential ambiguity about location. For more details, please see NENA Next Generation 9-1-1 (NG9-1-1) United States Civic Location Data Exchange Format (CLDXF) Standard (NENA-STA-004) [2].\n\npg 59 </Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Mile_Post"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Mile_Post"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Mile_Post"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Mile_Post"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="150"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Conditional/SSAP_Attribute_Validation_St_Name">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_St_Name</Name>
+                                    <Description>Street Name:\nDescription: The official name of the road, usually defined by the lowest jurisdictional authority (e.g. city). The street name does not include any street types, directionals, or modifiers.\nDomain: None\nExample: â€œFifthâ€� in â€œFifth Avenueâ€�\nNote: This element is a conditional element. For more details, please see NENA Next Generation 9-1-1 (NG9-1-1) United States Civic Location Data Exchange Format (CLDXF) Standard (NENA-STA-004) [2].\n\npg 72</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_Name"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_Name"/>
+                                                    <NotEqualsRelation/>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <StaticValue datatype="string" value=""/>
+                                                    </BuiltinFnValue>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_Name"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_Name"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="60"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Conditional/SSAP_Attribute_Validation_St_PosDir">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_St_PosDir</Name>
+                                    <Description>Street Name Post Directional:\nDescription: A word following the Street Name element that indicates the direction taken by the road from an arbitrary starting point or line, or the sector where it is located.\nDomain: North, South, East, West, Northeast, Northwest, Southeast, Southwest\nExample: â€œNorthâ€� in â€œElm Avenue Northâ€�\nNote: This element is a conditional element. For more details, please see NENA Next Generation 9-1-1 (NG9-1-1) United States Civic Location Data Exchange Format (CLDXF) Standard (NENA-STA-004) [2].\n\npg 72</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PosDir"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PosDir"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PosDir"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PosDir"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="9"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Conditional/SSAP_Attribute_Validation_St_PosMod">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_St_PosMod</Name>
+                                    <Description>Street Name Post Modifier:\nDescription: A word or phrase that follows and modifies the Street Name element, but is separated from it by a Street Name Post Type or a Street Name Post Directional or both.\nDomain: None\nExample: â€œNumber 5â€� in â€œFire Road Number 5â€� "Extensionâ€� in â€œMain Street North Extensionâ€�\nNote: This element is a conditional element. For more details, please see NENA Next Generation 9-1-1 (NG9-1-1) United States Civic Location Data Exchange Format (CLDXF) Standard (NENA-STA-004) [2].\n\npg 72</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PosMod"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PosMod"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PosMod"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PosMod"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="25"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Conditional/SSAP_Attribute_Validation_St_PosTyp">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_St_PosTyp</Name>
+                                    <Description>Street Name Post Type:\nDescription: A word or phrase that follows the Street Name element and identifies a type of thoroughfare in a complete street name. Domain: Restricted to values found in the â€œNENA Registry of Street Name Pre Types and Street Name Post Typesâ€� or combinations thereof. http://technet.nena.org/nrs/registry/StreetNamePreTypesAndStreetNamePostTypes.xml\nExample: â€œParkwayâ€� in â€œOcean Parkwayâ€�\nNote: This element is a conditional element. For more details, please see NENA Next Generation 9-1-1 (NG9-1-1) United States Civic Location Data Exchange Format (CLDXF) Standard (NENA-STA-004) [2].\n\npg 72</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PosTyp"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PosTyp"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PosTyp"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PosTyp"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="50"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Conditional/SSAP_Attribute_Validation_St_PreDir">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_St_PreDir</Name>
+                                    <Description>Street Name Pre Directional:\nDescription: A word preceding the Street Name element that indicates the direction taken by the road from an arbitrary starting point or line, or the sector where it is located.\nDomain: North, South, East, West, Northeast, Northwest, Southeast, Southwest\nExample: â€œSouthâ€� in â€œSouth Congress Avenueâ€�\nNote: This element is a conditional element. For more details, please see NENA Next Generation 9-1-1 (NG9-1-1) United States Civic Location Data Exchange Format (CLDXF) Standard (NENA-STA-004) [2].\n\npg 73</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PreDir"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PreDir"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PreDir"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PreDir"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="9"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Conditional/SSAP_Attribute_Validation_St_PreMod">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_St_PreMod</Name>
+                                    <Description>Street Name Pre Modifier:\nDescription: A word or phrase that precedes and modifies the Street Name element\nbut is separated from it by a Street Name Pre Type or a Street Name Pre Directional or both.\nDomain: None\nExample: â€œAlternateâ€� in â€œAlternate Route 8â€� â€œOldâ€� in â€œOld North Church Streetâ€�\nNote: This element is a conditional element. For more details, please see NENA Next Generation 9-1-1 (NG9-1-1) United States Civic Location Data Exchange Format (CLDXF) Standard (NENA-STA-004) [2].\n\npg 72</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PreMod"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PreMod"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PreMod"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PreMod"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="15"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Conditional/SSAP_Attribute_Validation_St_PreSep">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_St_PreSep</Name>
+                                    <Description>Street Name Pre Type Separator:\nDescription: A preposition or prepositional phrase between the Street Name Pre Type and the Street Name. This element is defined in CLDXF (NENA-STA-004) [2] as a US specific extension of PIDF-LO per RFC 6848 [5].\nDoman: Restricted to values found in the â€œNENA Registry of Street Name Pre Type Separators.â€� http://technet.nena.org/nrs/registry/StreetNamePreTypeSeparators.xml\nExample: â€œof theâ€� in â€œAvenue of the Starsâ€�\nNote: This element is a conditional element. For more details, please see NENA Next Generation 9-1-1 (NG9-1-1) United States Civic Location Data Exchange Format (CLDXF) Standard (NENA-STA-004) [2].\n\npg 74</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PreSep"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PreSep"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PreSep"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PreSep"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="20"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Conditional/SSAP_Attribute_Validation_St_PreTyp">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_St_PreTyp</Name>
+                                    <Description>Street Name Pre Type:\nDescription: A word or phrase that precedes the Street Name element and identifies a type of thoroughfare in a complete street name.\nDomain: Restricted to values found in the â€œNENA Registry of Street Name Pre Types and Street Name Post Typesâ€� or combinations thereof. http://technet.nena.org/nrs/registry/StreetNamePreTypesAndStreetNamePostTypes.xml\nExample: â€œAvenueâ€� in â€œAvenue Aâ€� â€œHighwayâ€� in â€œHighway 443â€� â€œBypass Highwayâ€� in â€œBypass Highway 22â€� â€œBoulevardâ€� in â€œBoulevard of the Alliesâ€�\nNote: Occasionally two or more type words occur together before the Street Name element (e.g., Bypass Highway 22). All of the words are placed in the Street Name Pre Type, unless the local address authority has included any of them in Street Name element. If the two type words are not part of the Street Name element and are not separated from each other by a directional word or other word, they are all placed in the Street Name Pre Type. This element is a conditional element. For more details, please see NENA Next Generation 9-1-1 (NG9-1-1) United States Civic Location Data Exchange Format (CLDXF) Standard (NENA-STA-004) [2].\n\npg 73</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PreTyp"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PreTyp"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PreTyp"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="St_PreTyp"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="50"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                        </RuleFolder>
+                        <RuleFolder>
+                            <Metadata>
+                                <Name>Mandatory</Name>
+                                <Created>
+                                    <UserDate date="2019-09-03T03:06:06.000Z"/>
+                                </Created>
+                                <LastEdited>
+                                    <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                </LastEdited>
+                            </Metadata>
+                            <IsShortcut>false</IsShortcut>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Mandatory/SSAP_Attribute_Validation_Country">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_Country</Name>
+                                    <Description>Country:\nDescription: The name of a country represented by its two-letter ISO 3166-1 English country alpha-2 code elements in capital ASCII letters.\nDomain: Restricted to the two-letter designations provided in ISO 3166-1.\nExample: "US" for the United States of America; "CA" for Canada\n\npg 49</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Country"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Country"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="length">
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Country"/>
+                                                </BuiltinFnValue>
+                                                <LessEqualsRelation/>
+                                                <StaticValue datatype="integer" value="2"/>
+                                            </RelationalPredicate>
+                                            <ExistsPredicate qualifier="exactly" n="1" classLabel="NG911_ValidValues_Table_World_Countries" objLabel="">
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="NG911_ValidValues_Table_World_Countries" objRef="" propName="Country"/>
+                                                    <EqualsRelation/>
+                                                    <BuiltinFnValue fnName="to_uppercase">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Country"/>
+                                                    </BuiltinFnValue>
+                                                </RelationalPredicate>
+                                            </ExistsPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Mandatory/SSAP_Attribute_Validation_County">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_County</Name>
+                                    <Description>County:\nDescription: The name of a County or County-equivalent where the address is located. A county (or its equivalent) is the primary legal division of a state or territory.\nDomain: Restricted to the names of counties and county equivalents. For the US, a complete list is maintained by the US Census Bureau as ANSI INCITS 31:2009 [12] (Formerly FIPS 6-4) and the Domain is restricted to the exact listed values as published in ANSI INCITS 31:2009 [12], including casing and use of abbreviations.\nExample: Washington County; Kenai Peninsula Borough; Jefferson Parish; Carson City; Falls Church city; District of Columbia\nNote: The following clarifications are provided directly from the NENA CLDXF\n\npg 50</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="County"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="County"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="length">
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="County"/>
+                                                </BuiltinFnValue>
+                                                <LessEqualsRelation/>
+                                                <StaticValue datatype="integer" value="40"/>
+                                            </RelationalPredicate>
+                                            <ExistsPredicate qualifier="exactly" n="1" classLabel="NG911_ValidValues_Table_Counties" objLabel="">
+                                                <AndPredicate>
+                                                    <RelationalPredicate>
+                                                        <DynamicValue classRef="NG911_ValidValues_Table_Counties" objRef="" propName="State_Abbr"/>
+                                                        <EqualsRelation/>
+                                                        <BuiltinFnValue fnName="to_uppercase">
+                                                            <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="State"/>
+                                                        </BuiltinFnValue>
+                                                    </RelationalPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="to_uppercase">
+                                                            <DynamicValue classRef="NG911_ValidValues_Table_Counties" objRef="" propName="County"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <BuiltinFnValue fnName="to_uppercase">
+                                                            <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="County"/>
+                                                        </BuiltinFnValue>
+                                                    </RelationalPredicate>
+                                                </AndPredicate>
+                                            </ExistsPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Mandatory/SSAP_Attribute_Validation_DateUpdate">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_DateUpdate</Name>
+                                    <Description>Date Updated:\nDescription: The date and time that the record was created or last modified. This value\nMUST be populated upon modifications to attributes, geometry, or both.\nDomain: Date and Time may be stored in the local database date/time format with the proviso that local time zone MUST be recorded and time MUST be recorded to a precision of at least 1 second and MAY be recorded to a precision of 0.1 second. If the local database date/time format does not meet these specifications, the database SHOULD record both the local date/time format and a string conforming to W3C dateTime format as described in XML Schema Part 2: Datatypes Second Edition [10].\nExample: (of a W3C dateTime with optional precision of .1 second)\n2017-12-21T17:58.03.1-05:00 (representing a record updated on December 21, 2017 at 5:58 and 3.1 seconds PM US Eastern Standard Time); 2017-07-11T08:31:15.2-04:00 (representing a record updated on July 11, 2017 at 8:31\nand 15.2 seconds AM US Eastern Daylight Time)</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="DateUpdate"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="DateUpdate"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="DateUpdate"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Mandatory/SSAP_Attribute_Validation_DiscrpAgID">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_DiscrpAgID</Name>
+                                    <Description>Discrepancy Agency ID:\nDescription: Agency that receives a Discrepancy Report (DR), should a discrepancy be discovered, and will take responsibility for ensuring discrepancy resolution. This may or may not be the same as the 9-1-1 Authority. This MUST be represented by a domain name that is an Agency Identifier as defined in the NENA Master Glossary.\nDomain: None\nExample: Vermont911.vt.us.gov; nct911.dst.tx.us\n\npg 51</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="DiscrpAgID"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="DiscrpAgID"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="DiscrpAgID"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="length">
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="DiscrpAgID"/>
+                                                </BuiltinFnValue>
+                                                <LessEqualsRelation/>
+                                                <StaticValue datatype="integer" value="75"/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Mandatory/SSAP_Attribute_Validation_Inc_Muni">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_Inc_Muni</Name>
+                                    <Description>Incorporated Municipality:\nDescription: The name of the Incorporated Municipality or other general-purpose local governmental unit (if any) where the address is located.\nDomain: None; however, use "Unincorporated" if the address is not within an incorporated local government.\nExample: Southlake; Alpine; Unincorporated\n\npg 55</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Inc_Muni"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Inc_Muni"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Inc_Muni"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <ConditionalValue>
+                                                    <RelationalPredicate>
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Inc_Muni"/>
+                                                        <RegExpRelation reType="pcre" one_char="?"/>
+                                                        <StaticValue datatype="string" value="\d"/>
+                                                    </RelationalPredicate>
+                                                    <StaticValue datatype="string" value="number"/>
+                                                    <StaticValue datatype="string" value="string"/>
+                                                </ConditionalValue>
+                                                <EqualsRelation/>
+                                                <StaticValue datatype="string" value="string"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="length">
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Inc_Muni"/>
+                                                </BuiltinFnValue>
+                                                <LessEqualsRelation/>
+                                                <StaticValue datatype="integer" value="100"/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Mandatory/SSAP_Attribute_Validation_Site_NGUID">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_Site_NGUID</Name>
+                                    <Description>Site NENA Globally Unique ID:\nDescription: The NENA Globally Unique ID for each Site/Structure Address Point. Each record in the Site/Structure Address Points layer MUST have a globally unique ID. When coalescing data from other local 9-1-1 Authorities into the ECRF and LVF, this unique ID MUST continue to have only one occurrence. One way to accomplish this is to append the 9-1-1 Authorityâ€™s domain to the end of the â€œlocally unique IDâ€�.\nDomain: None\nExample: Feature ID 2002 in the Site/Structure Address Points layer would be 1575 represented as SITE2002@911Authority_domain.state.us\n\npg 70</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Site_NGUID"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Site_NGUID"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Site_NGUID"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="length">
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Site_NGUID"/>
+                                                </BuiltinFnValue>
+                                                <LessEqualsRelation/>
+                                                <StaticValue datatype="integer" value="254"/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Mandatory/SSAP_Attribute_Validation_State">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_State</Name>
+                                    <Description>State \nDescription: The name of a state or state equivalent, represented by the two-letter abbreviation given in USPS Publication 28 [14], Appendix B. A state is a primary governmental division of the United States.\nDomain: ISO 3166-2 includes the same abbreviations as USPS Publication 28 [14], Appendix B, with the exception of the additional one for the nine minor uninhabited islands owned by the US: These abbreviations are also freely available at https://www.census.gov/geo/reference/ansi_statetables.html\nExample: TN; NM; OR\n\npg 71</Description>
+                                    <Comments>mkI - List of ORs\nmkII - Use Valid Values States table\nInitial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="State"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="State"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="length">
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="State"/>
+                                                </BuiltinFnValue>
+                                                <EqualsRelation/>
+                                                <StaticValue datatype="integer" value="2"/>
+                                            </RelationalPredicate>
+                                            <ExistsPredicate qualifier="exactly" n="1" classLabel="NG911_ValidValues_Table_States" objLabel="">
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="NG911_ValidValues_Table_States" objRef="" propName="State_Abbr"/>
+                                                    <EqualsRelation/>
+                                                    <BuiltinFnValue fnName="to_uppercase">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="State"/>
+                                                    </BuiltinFnValue>
+                                                </RelationalPredicate>
+                                            </ExistsPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                        </RuleFolder>
+                        <RuleFolder>
+                            <Metadata>
+                                <Name>Optional</Name>
+                                <Created>
+                                    <UserDate date="2019-09-03T03:06:06.000Z"/>
+                                </Created>
+                                <LastEdited>
+                                    <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                </LastEdited>
+                            </Metadata>
+                            <IsShortcut>false</IsShortcut>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Optional/SSAP_Attribute_Validation_Addtl_Loc">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_Addtl_Loc</Name>
+                                    <Description>Additional Location Information:\nDescription: A part of a sub-address that is not a Building, Floor, Unit, Room, or Seat.\nDomain: None\nExample: Pediatric Wing; Loading Dock; Concourse B; Gate B27; Corridor 5\n\npg 44</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Addtl_Loc"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Addtl_Loc"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Addtl_Loc"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Addtl_Loc"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="225"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Optional/SSAP_Attribute_Validation_Building">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_Building</Name>
+                                    <Description>Building:\nDescription: One among a group of buildings that have the same address number and complete street name.\nDomain: None\nExample: Building A; Building 4\n\npg 48</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Building"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Building"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Building"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Building"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="75"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Optional/SSAP_Attribute_Validation_Effective">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_Effective</Name>
+                                    <Description>Effective Date:\nDescription: The date and time that the record is scheduled to take effect.\nDomain: Date and Time may be stored in the local database date/time format with the proviso that local time zone MUST be recorded and time MUST be recorded to a precision of at least 1 second and MAY be recorded to a precision of 0.1 second. If the local database date/time format does not meet these specifications, the database SHOULD record both the local date/time format and a string conforming to W3C dateTime format as described in XML Schema Part 2: Datatypes Second Edition [10].\nExample: (of a W3C dateTime with optional precision of .1 second)\n2017-02-18T02:30:00.1-05:00 (representing a record that will become active on February 18, 2017 at 2:30 and 0.1 seconds AM US Eastern Standard Time);\n2017-10-09T13:01:35.2-04:00 (representing a record that will become active on October 9, 2017 at 1:01 and 35.2 seconds PM US Eastern Daylight Time)\nNote: This field is used when time and date of a change is known. For example, the time and date an annexation takes effect.</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Effective"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Effective"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Effective"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Optional/SSAP_Attribute_Validation_Elevation">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_Elevation</Name>
+                                    <Description>Elevation:\nDescription: The elevation, given in meters above a reference surface defined by the coordinate system, associated with the site/structure address.\nDomain: Restricted to whole numbers.\nExample: â€œ68â€� representing the elevation (in meters) associated with the address â€œ123 Main Street, Suite 401â€�\nNote: WGS84 (GPS) elevation is measured as height above the ellipsoid, which varies significantly from height above the geoid (approximately Mean Sea Level).\n\npg 52</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Elev"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Elev"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Elev"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="6"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Optional/SSAP_Attribute_Validation_Expire">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_Expire</Name>
+                                    <Description>Expiration Date:\nDescription: The date and time when the information in the record is no longer considered valid.\nDomain: Date and Time may be stored in the local database date/time format with the proviso that local time zone MUST be recorded and time MUST be recorded to a precision of at least 1 second and MAY be recorded to a precision of 0.1 second. If the local database date/time format does not meet these specifications, the database SHOULD record both the local date/time format and a string conforming to W3C dateTime format as described in XML Schema Part 2: Datatypes Second Edition [10].\nExample: (of a W3C dateTime with optional precision of .1 second)\n2017-02-18T02:30:00-05:00.1 (representing a record that will expire and no longer be valid on February 18, 2017 at 2:30 and 0.1 seconds AM US Eastern Standard Time);\n2017-10-09T13:01:35.2-04:00 (representing a record that will expire and no longer be valid on October 9, 2017 at 1:01 and 35.2 seconds PM US Eastern Daylight Time)\nNote: This field is used when the time and date of a change is known. For example, the time and date an annexation takes effect and the previous boundary is retired.</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Expire"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Expire"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Expire"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Optional/SSAP_Attribute_Validation_Floor">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_Floor</Name>
+                                    <Description>Floor:\nDescription: A floor, story, or level within a building.\nDomain: None\nExample: Floor 5; 5th Floor; Mezzanine\n\npg 54</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Floor"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Floor"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Floor"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Floor"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="75"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Optional/SSAP_Attribute_Validation_Lat">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_Lat</Name>
+                                    <Description>Latitude:\nDescription: The angular distance of a location north or south of the equator as defined by the coordinate system, expressed in decimal degrees.\nDomain: +90 degrees to -90 degrees\nExample: 80.868686\n\npg 57</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Lat"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Lat"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="real" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Lat"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Optional/SSAP_Attribute_Validation_Long">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_Long</Name>
+                                    <Description>Longitude:\nDescription: The angular distance of a location east or west of the prime meridian of the coordinate system, expressed in decimal degrees.\nDomain: -180 degrees to +180 degrees\nExample: -112.945833\n\npg 59</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Long"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Long"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="real" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Long"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Optional/SSAP_Attribute_Validation_Nbrhd_Comm">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_Nbrhd_Comm</Name>
+                                    <Description>Neighborhood Community:\nDescription: The name of an unincorporated neighborhood, subdivision, or area, either within an incorporated municipality or in an unincorporated portion of a county or both, where the address is located.\nDomain: None\nExample: Copperfield; University Heights; Shady Oaks Mobile Home Park\nNote: Neighborhood communities are only used when they are known and have a clearly defined boundary. Neighborhood communities are usually not used for addressing purposes, but are often used as differentiators within an area that have the same or similar sounding street names.\n\npg 61</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Uninc_Comm"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Nbrhd_Comm"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Nbrhd_Comm"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Nbrhd_Comm"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="100"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Optional/SSAP_Attribute_Validation_Place_Type">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_Place_Type</Name>
+                                    <Description>Place Type:\nDescription: The type of feature identified by the address.\nDomain: RFC 4589 (http://tools.ietf.org/rfc/rfc4589.txt) is the Registry of Location\nTypes, but the registry can be extended through a formal IANA process defined in\nSection 5.1 of RFC 4589\nExample: Airport; bank; cafÃ©; club; office; hotel\n\npg 62\n</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Place_Type"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Place_Type"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Place_Type"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Place_Type"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="50"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Optional/SSAP_Attribute_Validation_Placement">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_Placement</Name>
+                                    <Description>Placement Method:\nDescription: The methodology used for placement of the address point Domain: Geocoding, Parcel, Property Access, Structure, Site, Unknown are defined and can be extended as documented in the â€œPlacement Methodâ€� NENA Registry in Section 5.1 below.\nExample: Parcel (if the location of the address point was determined based on parcel\ncentroid)\n\npg 63</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Placement"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Placement"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Placement"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Placement"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="25"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Optional/SSAP_Attribute_Validation_Post_Code">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_Post_Code</Name>
+                                    <Description>Postal Code:\nDescription: A system of 5-digit (US) or 7-character codes (Canada) that identify the individual USPS or Canadian Post Office or metropolitan area delivery station associated with an address.\nDomain: The domain of values comes from the USPS City State File Product, which is a comprehensive list of ZIP Codes with corresponding USPS city and county names. However, the USPS City State Product only contains city and community names and their associated ZIP Codes. To perform complete 5-digit ZIP coding of address files, City State Product must be used in conjunction with Five-Digit ZIP Product, ZIP + 4Â® Product, or Carrier Route Product.\nExample: 02109 (Postal Code in Boston, MA); M4E 2V4 (Canadian Postal Code in Toronto, ON)\nNote: Postal Codes in the US are the same as ZIP codes. The USPS considers ZIP codes to be delivery routes instead of areas. There may be differences between this depiction and actual ZIP Code mailing address. When Postal Code is used it only includes the ZIP portion in the US and not the ZIP plus 4 part of a ZIP code. The Canadian Postal Code is a uniformly structured, alphanumeric code in the form "ANA NAN" where "A" represents an alphabetic character and "N" represents a numeric character. It is made up of two 3-character segments, "forward sortation area" and "local delivery unit", separated by a space for a total of 7 characters in length.\n\npg 63</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Post_Code"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Post_Code"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Post_Code"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Post_Code"/>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="7"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Optional/SSAP_Attribute_Validation_Post_Code4">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_Post_Code4</Name>
+                                    <Description>ZIP Plus-4:\nDescription: The addition of the ZIP Plus-4 refines the mail delivery point down to a specific block or building, and may prove useful to validate locations. ZIP Plus-4 codes change more often than US Postal codes, and this additional data field should make maintaining these optional codes easier.\nDomain: Defined by the USPS\nExample: â€œ0001â€� in â€œ02109-0001â€� (the ZIP Plus-4 code for Boston, MA)\n\npg 76</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Post_Code4"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Post_Code4"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Post_Code4"/>
+                                                    <GreaterRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Optional/SSAP_Attribute_Validation_Post_Comm">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_Post_Comm</Name>
+                                    <Description>Postal Community Name:\nDescription: A city name for the ZIP Code of an address, as given in the USPS City State file.\nDomain: Restricted to city names given in the USPS City State File for a given ZIP Code. The USPS City State File Product is a comprehensive list of ZIP Codes with corresponding USPS city and county names. However, the USPS City State Product only contains city and community names and their associated ZIP Codes. To perform complete 5-digit ZIP coding of address files, the USPS City State Product must be used in conjunction with Five-Digit ZIP Product, ZIP + 4Â® Product, or Carrier Route Product. The USPS Postal City name is the â€œpreferredâ€� name assigned to the post office from which the USPS delivers mail to the address, and may differ from the 9-1-1 city or community name.\nExample: Bowen (KY); Cypress (TX)\nNote: The Postal Community Name is the name assigned to the post office that delivers mail to a given address, and may differ from the 9-1-1 city or community location. Only the â€œpreferredâ€� Postal Community name as defined by the USPS City State File Product is allowed. The Postal Community name is also defined in the USPS ZIP Code lookup at https://tools.usps.com/go/ZipLookupAction_input\n\npg 64</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Post_Comm"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Uninc_Comm"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Post_Comm"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Post_Comm"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="40"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Optional/SSAP_Attribute_Validation_Room">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_Room</Name>
+                                    <Description>Room:\nDescription: A single room within a building.\nDomain: None\nExample: Room 137; Lobby\n\npg 68</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Room"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Room"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Room"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Room"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="75"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Optional/SSAP_Attribute_Validation_Seat">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_Seat</Name>
+                                    <Description>Seat:\nDescription: A place where a person might sit within a building.\nDomain: None\nExample: "Cubicle 5A"; "5A"; "Desk 11"; "11"\nNote: From the NENA CLDXF Standard (NENA-STA-004) [2]:\nThe Seat element â€œdesignates a place where a person might sit, such as a seat in a stadium or theater, or a cubicle in an open-plan office or a booth in a trade showâ€� (IETF RFC 4776, section 3.4).\nSubaddress elements typically include both a â€œtypeâ€� word (such as â€œseatâ€� or â€œdeskâ€�) and an identifier (a specific name or number). Include both the type word, the identifier in this element and any separating characters or spaces.\nThe type word may precede or follow the identifier (â€œRegistration Deskâ€� vs. â€œDesk17â€�). Either order is acceptable; local usage should be followed. In some cases, no type word is used.\n\npg 69</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Seat"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Seat"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Seat"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Seat"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="75"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Optional/SSAP_Attribute_Validation_Uninc_Comm">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_Uninc_Comm</Name>
+                                    <Description>Unincorporated Community:\nDescription: The name of an Unincorporated Community, either within an incorporated municipality or in an unincorporated portion of a county, or both, where the address is located.\nDomain: None\nExample: Cypress (TX); Bowen (KY)\nNote: An Unincorporated Community typically is a region of land that is not governed by its own local municipal corporation.\n\npg 74</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Uninc_Comm"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Uninc_Comm"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Uninc_Comm"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Uninc_Comm"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="100"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/Site_Structure_Address_Points/Optional/SSAP_Attribute_Validation_Unit">
+                                <Metadata>
+                                    <Name>SSAP_Attribute_Validation_Unit</Name>
+                                    <Description>Unit:\nDescription: A group or suite of rooms within a building that are under common ownership or tenancy, typically having a common primary entrance.\nDomain: None\nExample: Apartment C2; Penthouse; Suite 710\n\npg 75</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:06.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Site_Structure_Address_Points" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Unit"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Unit"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Unit"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Site_Structure_Address_Points" objRef="" propName="Unit"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="75"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                        </RuleFolder>
+                    </RuleFolder>
+                </RuleFolder>
+            </RuleFolder>
+        </RuleFolder>
+    </RuleFolder>
+</Backup>

@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Backup xmlns="http://schema.onespatial.com/radius/studio/v2" xmlns:gml="http://www.opengis.net/gml">
+    <RuleFolder>
+        <Metadata>
+            <Name>RULE</Name>
+            <Created>
+                <UserDate date="2017-01-06T01:22:42.000Z" user="Radius Studio"/>
+            </Created>
+            <LastEdited>
+                <UserDate date="2017-01-06T01:22:42.000Z" user="Radius Studio"/>
+            </LastEdited>
+        </Metadata>
+        <IsShortcut>false</IsShortcut>
+        <RuleFolder>
+            <Metadata>
+                <Name>Standard</Name>
+                <Created>
+                    <UserDate date="2017-01-03T01:13:12.000Z" user="1Spatial"/>
+                </Created>
+                <LastEdited>
+                    <UserDate date="2019-02-05T06:30:18.000Z" user="1Spatial"/>
+                </LastEdited>
+            </Metadata>
+            <IsShortcut>false</IsShortcut>
+            <RuleFolder>
+                <Metadata>
+                    <Name>NENA - Validations</Name>
+                    <Comments>Branch: master\nRecent Commits:\n</Comments>
+                    <Created>
+                        <UserDate date="2019-09-03T03:06:01.000Z"/>
+                    </Created>
+                    <LastEdited>
+                        <UserDate date="2019-09-03T03:06:01.000Z" user="1Spatial"/>
+                    </LastEdited>
+                </Metadata>
+                <IsShortcut>false</IsShortcut>
+                <RuleFolder>
+                    <Metadata>
+                        <Name>Required_Layers</Name>
+                        <Created>
+                            <UserDate date="2019-09-03T03:06:02.000Z"/>
+                        </Created>
+                        <LastEdited>
+                            <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                        </LastEdited>
+                    </Metadata>
+                    <IsShortcut>false</IsShortcut>
+                    <RuleFolder>
+                        <Metadata>
+                            <Name>PSAP_Boundary</Name>
+                            <Created>
+                                <UserDate date="2019-09-03T03:06:03.000Z"/>
+                            </Created>
+                            <LastEdited>
+                                <UserDate date="2019-09-03T03:06:03.000Z" user="1Spatial"/>
+                            </LastEdited>
+                        </Metadata>
+                        <IsShortcut>false</IsShortcut>
+                        <RuleFolder>
+                            <Metadata>
+                                <Name>Mandatory</Name>
+                                <Created>
+                                    <UserDate date="2019-09-03T03:06:03.000Z"/>
+                                </Created>
+                                <LastEdited>
+                                    <UserDate date="2019-09-03T03:06:03.000Z" user="1Spatial"/>
+                                </LastEdited>
+                            </Metadata>
+                            <IsShortcut>false</IsShortcut>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/PSAP_Boundary/Mandatory/PSAP - Attribute - Validation - AVcard_URI">
+                                <Metadata>
+                                    <Name>PSAP - Attribute - Validation - AVcard_URI</Name>
+                                    <Description>Agency vCard URI:\nDescription: A vCard is a file format standard for electronic business cards. The Agency vCard URI is the internet address of an eXtensible Markup Language (XML) data structure which contains contact information (Name of Agency, Contact phone numbers, etc.) in the form of a vCard (RFC 6350). vCard files may be exported from most email programs or created with a text editor. The vCard URI is used in the service boundary layers to provide contact information for that agency. The Agency Locator (see STA-010) will provide these URIs for Agencies listed in it.\nDomain: None\nExample: https://vcard.psap.allegheny.pa.us; https://vcard.houstontx.gov/fire</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:03.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:03.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="PSAP_Boundary" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="PSAP_Boundary" objRef="" propName="AVcard_URI"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="PSAP_Boundary" objRef="" propName="AVcard_URI"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/PSAP_Boundary/Mandatory/PSAP - Attribute - Validation - Agency_ID">
+                                <Metadata>
+                                    <Name>PSAP - Attribute - Validation - Agency_ID</Name>
+                                    <Description>Agency ID:\nDescription: A Domain Name System (DNS) domain name which is used to uniquely identify an agency. An agency is represented by a domain name as defined in RFC 1034. Each agency MUST use one domain name consistently in order to correlate actions across a wide range of calls and incidents. Any domain name in the public DNS is acceptable so long as each distinct agency uses a different domain name. This ensures that each agency ID is globally unique.\nDomain: MUST be a registered DNS domain name.\nExample: psap.harriscounty.tx.us; police.allegheny.pa.us\nNote: The Agency ID is a field in the PSAP Boundary and an Emergency Service Boundary which identifies the agency the boundary defines. It is also used in the Emergency Incident Data Document, the Service/Agency Locator, and may be used in constructing NGUIDs.</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:03.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:03.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="PSAP_Boundary" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="PSAP_Boundary" objRef="" propName="Agency_ID"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="PSAP_Boundary" objRef="" propName="Agency_ID"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="PSAP_Boundary" objRef="" propName="Agency_ID"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/PSAP_Boundary/Mandatory/PSAP - Attribute - Validation - DateUpdate">
+                                <Metadata>
+                                    <Name>PSAP - Attribute - Validation - DateUpdate</Name>
+                                    <Description>Date Updated:\nDescription: The date and time that the record was created or last modified. This value\nMUST be populated upon modifications to attributes, geometry, or both.\nDomain: Date and Time may be stored in the local database date/time format with the proviso that local time zone MUST be recorded and time MUST be recorded to a precision of at least 1 second and MAY be recorded to a precision of 0.1 second. If the local database date/time format does not meet these specifications, the database SHOULD record both the local date/time format and a string conforming to W3C dateTime format as described in XML Schema Part 2: Datatypes Second Edition [10].\nExample: (of a W3C dateTime with optional precision of .1 second)\n2017-12-21T17:58.03.1-05:00 (representing a record updated on December 21, 2017 at 5:58 and 3.1 seconds PM US Eastern Standard Time); 2017-07-11T08:31:15.2-04:00 (representing a record updated on July 11, 2017 at 8:31\nand 15.2 seconds AM US Eastern Daylight Time)</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:03.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:03.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="PSAP_Boundary" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="PSAP_Boundary" objRef="" propName="DateUpdate"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="PSAP_Boundary" objRef="" propName="DateUpdate"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="PSAP_Boundary" objRef="" propName="DateUpdate"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/PSAP_Boundary/Mandatory/PSAP - Attribute - Validation - DiscrpAgID">
+                                <Metadata>
+                                    <Name>PSAP - Attribute - Validation - DiscrpAgID</Name>
+                                    <Description>Discrepancy Agency ID:\nDescription: Agency that receives a Discrepancy Report (DR), should a discrepancy be discovered, and will take responsibility for ensuring discrepancy resolution. This may or may not be the same as the 9-1-1 Authority. This MUST be represented by a domain name that is an Agency Identifier as defined in the NENA Master Glossary.\nDomain: None\nExample: Vermont911.vt.us.gov; nct911.dst.tx.us\n\npg 51</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:03.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:03.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="PSAP_Boundary" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="PSAP_Boundary" objRef="" propName="DiscrpAgID"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="PSAP_Boundary" objRef="" propName="DiscrpAgID"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="PSAP_Boundary" objRef="" propName="DiscrpAgID"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/PSAP_Boundary/Mandatory/PSAP - Attribute - Validation - DsplayName">
+                                <Metadata>
+                                    <Name>PSAP - Attribute - Validation - DsplayName</Name>
+                                    <Description>Display Name:\nDescription: A description or "name" of the service provider that offers services within the area of a PSAP or an Emergency Service Boundary. This value MUST be suitable for display.\nDomain: None\nExample: New York Police Department; Med-Life Ambulance Services</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:03.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:03.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="PSAP_Boundary" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="PSAP_Boundary" objRef="" propName="DsplayName"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="PSAP_Boundary" objRef="" propName="DsplayName"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/PSAP_Boundary/Mandatory/PSAP - Attribute - Validation - Global ID">
+                                <Metadata>
+                                    <Name>PSAP - Attribute - Validation - Global ID</Name>
+                                    <Description>Emergency Service Boundary NENA Globally Unique ID\nDescription: The NENA Globally Unique ID for each Emergency Service Boundary and PSAP Boundary. Each record in the Emergency Service Boundary layer and the PSAP Boundary layer MUST have a globally unique ID. When coalescing data from other local 9-1-1 Authorities into the ECRF and LVF, this unique ID MUST continue to have only one occurrence. One way to accomplish this is to append the 9-1-1 Authorityâ€™s domain to the end of the â€œlocally unique IDâ€�. Emergency Service Boundary data is unique in that the data fields and their attributes are only a template to be reused for each Emergency Service Boundary. For the Emergency Service Boundary, there MAY be a separate dataset for Law, Fire, and EMS, and other Emergency Services such as Poison Control, Forest Service, Coast Guard, and potentially many others.\nDomain: None\nNote: When an Emergency Service Boundary crosses into one or more states, the Emergency Service Boundary SHOULD be split at the State Boundary or State Equivalent with the State and the Emergency Service Boundary NENA Globally Unique ID being the only difference in the attributes.</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:03.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:03.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="PSAP_Boundary" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="PSAP_Boundary" objRef="" propName="ES_NGUID"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="PSAP_Boundary" objRef="" propName="ES_NGUID"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="PSAP_Boundary" objRef="" propName="ES_NGUID"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/PSAP_Boundary/Mandatory/PSAP - Attribute - Validation - ServiceURI">
+                                <Metadata>
+                                    <Name>PSAP - Attribute - Validation - ServiceURI</Name>
+                                    <Description>Service URI:\nDescription: URI for call routing. This attribute is contained in the Emergency Service Boundary layer and will define the Service URI of the service. The URI is usually a Session Initiation Protocol (e.g. SIP or SIPs) URI but MAY be a telephone number (e.g. tel) URI that defines the route to reach the service.\nDomain: Registered domain name; RFC 1035 (available at https://www.ietf.org/rfc/rfc1035.txt) defines the process to register a domain name.\nExample: sips:sos.psap@eoc.houston.tx.us; tel:+12025551212\n\npg 70</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:03.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:03.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="PSAP_Boundary" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="PSAP_Boundary" objRef="" propName="ServiceURI"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="length">
+                                                    <DynamicValue classRef="PSAP_Boundary" objRef="" propName="ServiceURI"/>
+                                                </BuiltinFnValue>
+                                                <LessEqualsRelation/>
+                                                <StaticValue datatype="integer" value="254"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="PSAP_Boundary" objRef="" propName="ServiceURI"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/PSAP_Boundary/Mandatory/PSAP - Attribute - Validation - ServiceURN">
+                                <Metadata>
+                                    <Name>PSAP - Attribute - Validation - ServiceURN</Name>
+                                    <Description>Service URN:\nDescription: The URN used to select the service for which a route is desired. The ECRF is queried with a location and a service URN that returns the Service URI.\nDomain: RFC 5031 defines the Service URN; NENA-STA-010 [1] defines the domain of allowable values. PSAP boundaries SHOULD only contain features with Service URN values of "urn:nena:service:sos.psap". Values to be used for emergency service boundaries for other responding agencies are found in NENA Registry System - urn:nena:service:responder registry.\nExample: urn:nena:service:sos.psap; urn:nena:service:responder.police; urn:nena:service:responder.fire; urn:nena:service:responder.ems\nNote: A boundary with a service URN of urn:service:sos MUST be provisioned in the ECRF. 9-1-1 Authorities responsible for the ECRF or their designees/vendors will need to generate such a boundary from the boundaries in all the GIS systems provisioned to that ECRF. If provisioning a boundary to the ECRF, it MUST conform to the definition of Service Boundary in NENA-STA-010 [1], Appendix B.\n\npg 70</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:03.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:03.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="PSAP_Boundary" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="PSAP_Boundary" objRef="" propName="ServiceURN"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="length">
+                                                    <DynamicValue classRef="PSAP_Boundary" objRef="" propName="ServiceURN"/>
+                                                </BuiltinFnValue>
+                                                <LessEqualsRelation/>
+                                                <StaticValue datatype="integer" value="50"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="PSAP_Boundary" objRef="" propName="ServiceURN"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/PSAP_Boundary/Mandatory/PSAP - Attribute - Validation - State">
+                                <Metadata>
+                                    <Name>PSAP - Attribute - Validation - State</Name>
+                                    <Description>State \nDescription: The name of a state or state equivalent, represented by the two-letter abbreviation given in USPS Publication 28 [14], Appendix B. A state is a primary governmental division of the United States.\nDomain: ISO 3166-2 includes the same abbreviations as USPS Publication 28 [14], Appendix B, with the exception of the additional one for the nine minor uninhabited islands owned by the US: These abbreviations are also freely available at https://www.census.gov/geo/reference/ansi_statetables.html\nExample: TN; NM; OR\n\npg 71</Description>
+                                    <Comments>mkI - List of ORs\nmkII - Use Valid Values States table\nInitial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:03.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:03.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="PSAP_Boundary" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="PSAP_Boundary" objRef="" propName="State"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="PSAP_Boundary" objRef="" propName="State"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="length">
+                                                    <DynamicValue classRef="PSAP_Boundary" objRef="" propName="State"/>
+                                                </BuiltinFnValue>
+                                                <EqualsRelation/>
+                                                <StaticValue datatype="integer" value="2"/>
+                                            </RelationalPredicate>
+                                            <ExistsPredicate qualifier="exactly" n="1" classLabel="NG911_ValidValues_Table_States" objLabel="">
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="NG911_ValidValues_Table_States" objRef="" propName="State_Abbr"/>
+                                                    <EqualsRelation/>
+                                                    <BuiltinFnValue fnName="to_uppercase">
+                                                        <DynamicValue classRef="PSAP_Boundary" objRef="" propName="State"/>
+                                                    </BuiltinFnValue>
+                                                </RelationalPredicate>
+                                            </ExistsPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                        </RuleFolder>
+                        <RuleFolder>
+                            <Metadata>
+                                <Name>Optional</Name>
+                                <Created>
+                                    <UserDate date="2019-09-03T03:06:03.000Z"/>
+                                </Created>
+                                <LastEdited>
+                                    <UserDate date="2019-09-03T03:06:03.000Z" user="1Spatial"/>
+                                </LastEdited>
+                            </Metadata>
+                            <IsShortcut>false</IsShortcut>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/PSAP_Boundary/Optional/PSAP - Attribute - Validation - Effective">
+                                <Metadata>
+                                    <Name>PSAP - Attribute - Validation - Effective</Name>
+                                    <Description>Effective Date:\nDescription: The date and time that the record is scheduled to take effect.\nDomain: Date and Time may be stored in the local database date/time format with the proviso that local time zone MUST be recorded and time MUST be recorded to a precision of at least 1 second and MAY be recorded to a precision of 0.1 second. If the local database date/time format does not meet these specifications, the database SHOULD record both the local date/time format and a string conforming to W3C dateTime format as described in XML Schema Part 2: Datatypes Second Edition [10].\nExample: (of a W3C dateTime with optional precision of .1 second)\n2017-02-18T02:30:00.1-05:00 (representing a record that will become active on February 18, 2017 at 2:30 and 0.1 seconds AM US Eastern Standard Time);\n2017-10-09T13:01:35.2-04:00 (representing a record that will become active on October 9, 2017 at 1:01 and 35.2 seconds PM US Eastern Daylight Time)\nNote: This field is used when time and date of a change is known. For example, the time and date an annexation takes effect.</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:03.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:03.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="PSAP_Boundary" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="PSAP_Boundary" objRef="" propName="Effective"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="PSAP_Boundary" objRef="" propName="Effective"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="PSAP_Boundary" objRef="" propName="Effective"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/PSAP_Boundary/Optional/PSAP - Attribute - Validation - Expire">
+                                <Metadata>
+                                    <Name>PSAP - Attribute - Validation - Expire</Name>
+                                    <Description>Expiration Date:\nDescription: The date and time when the information in the record is no longer considered valid.\nDomain: Date and Time may be stored in the local database date/time format with the proviso that local time zone MUST be recorded and time MUST be recorded to a precision of at least 1 second and MAY be recorded to a precision of 0.1 second. If the local database date/time format does not meet these specifications, the database SHOULD record both the local date/time format and a string conforming to W3C dateTime format as described in XML Schema Part 2: Datatypes Second Edition [10].\nExample: (of a W3C dateTime with optional precision of .1 second)\n2017-02-18T02:30:00-05:00.1 (representing a record that will expire and no longer be valid on February 18, 2017 at 2:30 and 0.1 seconds AM US Eastern Standard Time);\n2017-10-09T13:01:35.2-04:00 (representing a record that will expire and no longer be valid on October 9, 2017 at 1:01 and 35.2 seconds PM US Eastern Daylight Time)\nNote: This field is used when the time and date of a change is known. For example, the time and date an annexation takes effect and the previous boundary is retired.</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:03.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:03.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="PSAP_Boundary" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="PSAP_Boundary" objRef="" propName="Expire"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="PSAP_Boundary" objRef="" propName="Expire"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="PSAP_Boundary" objRef="" propName="Expire"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Required_Layers/PSAP_Boundary/Optional/PSAP - Attribute - Validation - ServiceNum">
+                                <Metadata>
+                                    <Name>PSAP - Attribute - Validation - ServiceNum</Name>
+                                    <Description>Service Number:\nDescription: The numbers that would be dialed on a 12-digit keypad to reach the emergency service appropriate for the location. This is not the same as an Emergency Service Number (ESN) in Legacy E9-1-1 systems. This field is used for all Emergency Boundaries including PSAP; Law; Fire; EMS; and others such as Poison Control. Within the United States the Service Number for most emergency services is 9-1-1, however, there may be Emergency Service boundaries that have a different number that may be associated with them such as Poison Control. Additionally, in areas outside of the United States, different numbers may be used for Law, Fire, and EMS â€“ this field would be used to denote those numbers.\nDomain: A dialable number or dial string\nExample: 911; 18002221212\n\npg 69</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:04.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:04.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="PSAP_Boundary" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="PSAP_Boundary" objRef="" propName="ServiceNum"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="PSAP_Boundary" objRef="" propName="ServiceNum"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="PSAP_Boundary" objRef="" propName="ServiceNum"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                        </RuleFolder>
+                    </RuleFolder>
+                </RuleFolder>
+            </RuleFolder>
+        </RuleFolder>
+    </RuleFolder>
+</Backup>

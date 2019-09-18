@@ -1,0 +1,919 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Backup xmlns="http://schema.onespatial.com/radius/studio/v2" xmlns:gml="http://www.opengis.net/gml">
+    <RuleFolder>
+        <Metadata>
+            <Name>RULE</Name>
+            <Created>
+                <UserDate date="2017-01-06T01:22:42.000Z" user="Radius Studio"/>
+            </Created>
+            <LastEdited>
+                <UserDate date="2017-01-06T01:22:42.000Z" user="Radius Studio"/>
+            </LastEdited>
+        </Metadata>
+        <IsShortcut>false</IsShortcut>
+        <RuleFolder>
+            <Metadata>
+                <Name>Standard</Name>
+                <Created>
+                    <UserDate date="2017-01-03T01:13:12.000Z" user="1Spatial"/>
+                </Created>
+                <LastEdited>
+                    <UserDate date="2019-02-05T06:30:18.000Z" user="1Spatial"/>
+                </LastEdited>
+            </Metadata>
+            <IsShortcut>false</IsShortcut>
+            <RuleFolder>
+                <Metadata>
+                    <Name>NENA - Validations</Name>
+                    <Comments>Branch: master\nRecent Commits:\n</Comments>
+                    <Created>
+                        <UserDate date="2019-09-03T03:06:01.000Z"/>
+                    </Created>
+                    <LastEdited>
+                        <UserDate date="2019-09-03T03:06:01.000Z" user="1Spatial"/>
+                    </LastEdited>
+                </Metadata>
+                <IsShortcut>false</IsShortcut>
+                <RuleFolder>
+                    <Metadata>
+                        <Name>Recommended_Layers</Name>
+                        <Created>
+                            <UserDate date="2019-09-03T03:06:01.000Z"/>
+                        </Created>
+                        <LastEdited>
+                            <UserDate date="2019-09-03T03:06:01.000Z" user="1Spatial"/>
+                        </LastEdited>
+                    </Metadata>
+                    <IsShortcut>false</IsShortcut>
+                    <RuleFolder>
+                        <Metadata>
+                            <Name>Cell_Site_Location</Name>
+                            <Created>
+                                <UserDate date="2019-09-03T03:06:01.000Z"/>
+                            </Created>
+                            <LastEdited>
+                                <UserDate date="2019-09-03T03:06:01.000Z" user="1Spatial"/>
+                            </LastEdited>
+                        </Metadata>
+                        <IsShortcut>false</IsShortcut>
+                        <RuleFolder>
+                            <Metadata>
+                                <Name>Conditional</Name>
+                                <Created>
+                                    <UserDate date="2019-09-03T03:06:01.000Z"/>
+                                </Created>
+                                <LastEdited>
+                                    <UserDate date="2019-09-03T03:06:01.000Z" user="1Spatial"/>
+                                </LastEdited>
+                            </Metadata>
+                            <IsShortcut>false</IsShortcut>
+                            <Item id="RULE://Standard/NENA - Validations/Recommended_Layers/Cell_Site_Location/Conditional/CSL - Attribute - Validation - CMarket_ID">
+                                <Metadata>
+                                    <Name>CSL - Attribute - Validation - CMarket_ID</Name>
+                                    <Description>Market ID:\nDescription: The mobile switch ID provided on the wireless routing spreadsheet\nDomain: None\nExample: 87-83; 00062\n\npg 59</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:01.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:01.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Cell_Sector_Location" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="CMarket_ID"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="CMarket_ID"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="CMarket_ID"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="CMarket_ID"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="10"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Recommended_Layers/Cell_Site_Location/Conditional/CSL - Attribute - Validation - CSite_Name">
+                                <Metadata>
+                                    <Name>CSL - Attribute - Validation - CSite_Name</Name>
+                                    <Description>Cell Site ID:\nDescription: Name provided by the wireless service provider on the wireless routing sheet, usually unique to the cell site.\nDomain: None\nExample: 234-1; HX0441-4412\n\npg 48</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Cell_Sector_Location" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="CSite_Name"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="CSite_Name"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="CSite_Name"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="length">
+                                                        <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="CSite_Name"/>
+                                                    </BuiltinFnValue>
+                                                    <LessEqualsRelation/>
+                                                    <StaticValue datatype="integer" value="10"/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Recommended_Layers/Cell_Site_Location/Conditional/CSL - Attribute - Validation - ESRD_ESRK">
+                                <Metadata>
+                                    <Name>CSL - Attribute - Validation - ESRD_ESRK</Name>
+                                    <Description>ESRD or first ESRK:\nDescription: Pseudo ANI, for the Emergency Service Routing Digit (ESRD) or the Emergency Service Routing Key (ESRK) as provided on the wireless providers wireless routing spreadsheet.\nDomain: 10 digit whole numbers\nExample: 5121112123\nNote: ESRDs and ESRKs are used for 10-digit routing in Legacy Systems and are not used in a fully transitioned NG9-1-1 implementation that does not include legacy emergency service gateways. For more information, see NENA Wireless Call Routing &amp; Testing Validation Standard 57-002 [11], https://www.nena.org/?page=WirelessRoutingTest.\n\npg 54</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Cell_Sector_Location" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="ESRD_ESRK"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="ESRD_ESRK"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Recommended_Layers/Cell_Site_Location/Conditional/CSL - Attribute - Validation - ESRK_Last">
+                                <Metadata>
+                                    <Name>CSL - Attribute - Validation - ESRK_Last</Name>
+                                    <Description>Last ESRK:\nDescription: The last 10-digit number in the Emergency Service Routing Key (ESRK) pseudo ALI range\nDomain: 10-digit whole numbers\nExample: 5121112130\nNote: Used for 10-digit routing in Legacy Systems and is not used in a fully transitioned NG9-1-1 implementation that does not include legacy emergency service gateways.\n\npg 57</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Cell_Sector_Location" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="ESRK_Last"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="ESRK_Last"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Recommended_Layers/Cell_Site_Location/Conditional/CSL - Attribute - Validation - Lat">
+                                <Metadata>
+                                    <Name>CSL - Attribute - Validation - Lat</Name>
+                                    <Description>Latitude:\nDescription: The angular distance of a location north or south of the equator as defined by the coordinate system, expressed in decimal degrees.\nDomain: +90 degrees to -90 degrees\nExample: 80.868686\n\npg 57</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Cell_Sector_Location" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="Lat"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <AndPredicate>
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="Lat"/>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="real" value="0"/>
+                                                </RelationalPredicate>
+                                                <RelationalPredicate>
+                                                    <BuiltinFnValue fnName="trim">
+                                                        <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="Lat"/>
+                                                    </BuiltinFnValue>
+                                                    <NotEqualsRelation/>
+                                                    <StaticValue datatype="string" value=""/>
+                                                </RelationalPredicate>
+                                            </AndPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Recommended_Layers/Cell_Site_Location/Conditional/CSL - Attribute - Validation - Long">
+                                <Metadata>
+                                    <Name>CSL - Attribute - Validation - Long</Name>
+                                    <Description>Longitude:\nDescription: The angular distance of a location east or west of the prime meridian of the coordinate system, expressed in decimal degrees.\nDomain: -180 degrees to +180 degrees\nExample: -112.945833\n\npg 59</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Cell_Sector_Location" objLabel="">
+                                        <ConditionalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="Long"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="Long"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="real" value="0"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="Long"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                        </ConditionalPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Recommended_Layers/Cell_Site_Location/Conditional/CSL - Attribute - Validation - Site_ID">
+                                <Metadata>
+                                    <Name>CSL - Attribute - Validation - Site_ID</Name>
+                                    <Description>Site ID:\nDescription: Some carriers have cell site identifications unique for that cell site within the entire carrier network.\nDomain: None\nExample: XMO92348; NX0552-1432\n\npg 70</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Cell_Sector_Location" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="Site_ID"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="Site_ID"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="Site_ID"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="length">
+                                                    <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="Site_ID"/>
+                                                </BuiltinFnValue>
+                                                <LessEqualsRelation/>
+                                                <StaticValue datatype="integer" value="10"/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Recommended_Layers/Cell_Site_Location/Conditional/CSL - Attribute - Validation - Switch_ID">
+                                <Metadata>
+                                    <Name>CSL - Attribute - Validation - Switch_ID</Name>
+                                    <Description>Switch ID:\nDescription: The wireless switch to which the site is homed or associated with, as given in the wireless routing spreadsheet. For more information see NENA E9-1-1 Wireless Maintenance Call Routing &amp; Testing Validation Standard (NENA 57-002) [11].\nDomain: None\nExample: 12-3; 002\n\npg 74</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Cell_Sector_Location" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="Switch_ID"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="Switch_ID"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="Switch_ID"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="length">
+                                                    <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="Switch_ID"/>
+                                                </BuiltinFnValue>
+                                                <LessEqualsRelation/>
+                                                <StaticValue datatype="integer" value="10"/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                        </RuleFolder>
+                        <RuleFolder>
+                            <Metadata>
+                                <Name>Mandatory</Name>
+                                <Created>
+                                    <UserDate date="2019-09-03T03:06:02.000Z"/>
+                                </Created>
+                                <LastEdited>
+                                    <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                </LastEdited>
+                            </Metadata>
+                            <IsShortcut>false</IsShortcut>
+                            <Item id="RULE://Standard/NENA - Validations/Recommended_Layers/Cell_Site_Location/Mandatory/CSL - Attribute - Validation - CSctr_Ornt">
+                                <Metadata>
+                                    <Name>CSL - Attribute - Validation - CSctr_Ornt</Name>
+                                    <Description>Sector Orientation:\nDescription: The orientation of cell tower sector antenna face associated with the location\nDomain: None\nExample: Omni; N; SE\n\npg 69</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Cell_Sector_Location" objLabel="">
+                                        <OrPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="CSctr_Ornt"/>
+                                                <EqualsRelation/>
+                                                <StaticValue datatype="string" value="N"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="CSctr_Ornt"/>
+                                                <EqualsRelation/>
+                                                <StaticValue datatype="string" value="S"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="CSctr_Ornt"/>
+                                                <EqualsRelation/>
+                                                <StaticValue datatype="string" value="E"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="CSctr_Ornt"/>
+                                                <EqualsRelation/>
+                                                <StaticValue datatype="string" value="W"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="CSctr_Ornt"/>
+                                                <EqualsRelation/>
+                                                <StaticValue datatype="string" value="Omni"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="CSctr_Ornt"/>
+                                                <EqualsRelation/>
+                                                <StaticValue datatype="string" value="NW"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="CSctr_Ornt"/>
+                                                <EqualsRelation/>
+                                                <StaticValue datatype="string" value="SW"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="CSctr_Ornt"/>
+                                                <EqualsRelation/>
+                                                <StaticValue datatype="string" value="NE"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="CSctr_Ornt"/>
+                                                <EqualsRelation/>
+                                                <StaticValue datatype="string" value="SE"/>
+                                            </RelationalPredicate>
+                                        </OrPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Recommended_Layers/Cell_Site_Location/Mandatory/CSL - Attribute - Validation - Cell_NGUID">
+                                <Metadata>
+                                    <Name>CSL - Attribute - Validation - Cell_NGUID</Name>
+                                    <Description>Site NENA Globally Unique ID:\nDescription: The NENA Globally Unique ID for each Site/Structure Address Point. Each record in the Site/Structure Address Points layer MUST have a globally unique ID. When coalescing data from other local 9-1-1 Authorities into the ECRF and LVF, this unique ID MUST continue to have only one occurrence. One way to accomplish this is to append the 9-1-1 Authorityâ€™s domain to the end of the â€œlocally unique IDâ€�.\nDomain: None\nExample: Feature ID 2002 in the Site/Structure Address Points layer would be represented as SITE2002@911Authority_domain.state.us\n\npg 70</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Cell_Sector_Location" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="Cell_NGUID"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="Cell_NGUID"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="Cell_NGUID"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Recommended_Layers/Cell_Site_Location/Mandatory/CSL - Attribute - Validation - Country">
+                                <Metadata>
+                                    <Name>CSL - Attribute - Validation - Country</Name>
+                                    <Description>Country:\nDescription: The name of a country represented by its two-letter ISO 3166-1 English country alpha-2 code elements in capital ASCII letters.\nDomain: Restricted to the two-letter designations provided in ISO 3166-1.\nExample: "US" for the United States of America; "CA" for Canada\n\npg 49</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Cell_Sector_Location" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="Country"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="Country"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <ConditionalValue>
+                                                    <RelationalPredicate>
+                                                        <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="Country"/>
+                                                        <RegExpRelation reType="pcre" one_char="?"/>
+                                                        <StaticValue datatype="string" value="\d"/>
+                                                    </RelationalPredicate>
+                                                    <StaticValue datatype="string" value="number"/>
+                                                    <StaticValue datatype="string" value="string"/>
+                                                </ConditionalValue>
+                                                <EqualsRelation/>
+                                                <StaticValue datatype="string" value="string"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="length">
+                                                    <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="Country"/>
+                                                </BuiltinFnValue>
+                                                <GreaterRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                            <ExistsPredicate qualifier="exactly" n="1" classLabel="NG911_ValidValues_Table_World_Countries" objLabel="">
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="NG911_ValidValues_Table_World_Countries" objRef="" propName="Country"/>
+                                                    <EqualsRelation/>
+                                                    <BuiltinFnValue fnName="to_uppercase">
+                                                        <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="Country"/>
+                                                    </BuiltinFnValue>
+                                                </RelationalPredicate>
+                                            </ExistsPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Recommended_Layers/Cell_Site_Location/Mandatory/CSL - Attribute - Validation - County">
+                                <Metadata>
+                                    <Name>CSL - Attribute - Validation - County</Name>
+                                    <Description>County\nDescription: The name of a County or County-equivalent where the address is located. A county (or its equivalent) is the primary legal division of a state or territory.\nDomain: Restricted to the names of counties and county equivalents. For the US, a complete list is maintained by the US Census Bureau as ANSI INCITS 31:2009 [12] (Formerly FIPS 6-4) and the Domain is restricted to the exact listed values as published in ANSI INCITS 31:2009 [12], including casing and use of abbreviations.\nExample: Washington County; Kenai Peninsula Borough; Jefferson Parish; Carson City; Falls Church city; District of Columbia\nNote: The following clarifications are provided directly from the NENA CLDXF Standard (NENA-STA-004) [2]:\n\npg 50</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Cell_Sector_Location" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="County"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="County"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="length">
+                                                    <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="County"/>
+                                                </BuiltinFnValue>
+                                                <LessEqualsRelation/>
+                                                <StaticValue datatype="integer" value="75"/>
+                                            </RelationalPredicate>
+                                            <ExistsPredicate qualifier="exactly" n="1" classLabel="NG911_ValidValues_Table_Counties" objLabel="">
+                                                <AndPredicate>
+                                                    <RelationalPredicate>
+                                                        <DynamicValue classRef="NG911_ValidValues_Table_Counties" objRef="" propName="State_Abbr"/>
+                                                        <EqualsRelation/>
+                                                        <BuiltinFnValue fnName="to_uppercase">
+                                                            <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="State"/>
+                                                        </BuiltinFnValue>
+                                                    </RelationalPredicate>
+                                                    <RelationalPredicate>
+                                                        <BuiltinFnValue fnName="to_uppercase">
+                                                            <DynamicValue classRef="NG911_ValidValues_Table_Counties" objRef="" propName="County"/>
+                                                        </BuiltinFnValue>
+                                                        <EqualsRelation/>
+                                                        <BuiltinFnValue fnName="to_uppercase">
+                                                            <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="County"/>
+                                                        </BuiltinFnValue>
+                                                    </RelationalPredicate>
+                                                </AndPredicate>
+                                            </ExistsPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Recommended_Layers/Cell_Site_Location/Mandatory/CSL - Attribute - Validation - DateUpdate">
+                                <Metadata>
+                                    <Name>CSL - Attribute - Validation - DateUpdate</Name>
+                                    <Description>Date Updated:\nDescription: The date and time that the record was created or last modified. This value\nMUST be populated upon modifications to attributes, geometry, or both.\nDomain: Date and Time may be stored in the local database date/time format with the proviso that local time zone MUST be recorded and time MUST be recorded to a precision of at least 1 second and MAY be recorded to a precision of 0.1 second. If the local database date/time format does not meet these specifications, the database SHOULD record both the local date/time format and a string conforming to W3C dateTime format as described in XML Schema Part 2: Datatypes Second Edition [10].\nExample: (of a W3C dateTime with optional precision of .1 second)\n2017-12-21T17:58.03.1-05:00 (representing a record updated on December 21, 2017 at 5:58 and 3.1 seconds PM US Eastern Standard Time); 2017-07-11T08:31:15.2-04:00 (representing a record updated on July 11, 2017 at 8:31\nand 15.2 seconds AM US Eastern Daylight Time)</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Cell_Sector_Location" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="DateUpdate"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="DateUpdate"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="DateUpdate"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Recommended_Layers/Cell_Site_Location/Mandatory/CSL - Attribute - Validation - DiscrpAgID">
+                                <Metadata>
+                                    <Name>CSL - Attribute - Validation - DiscrpAgID</Name>
+                                    <Description>Discrepancy Agency ID:\nDescription: Agency that receives a Discrepancy Report (DR), should a discrepancy be discovered, and will take responsibility for ensuring discrepancy resolution. This may or may not be the same as the 9-1-1 Authority. This MUST be represented by a domain name that is an Agency Identifier as defined in the NENA Master Glossary.\nDomain: None\nExample: Vermont911.vt.us.gov; nct911.dst.tx.us\n\npg 51</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Cell_Sector_Location" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="DiscrpAgID"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="DiscrpAgID"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="length">
+                                                    <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="DiscrpAgID"/>
+                                                </BuiltinFnValue>
+                                                <LessEqualsRelation/>
+                                                <StaticValue datatype="integer" value="75"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="DiscrpAgID"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Recommended_Layers/Cell_Site_Location/Mandatory/CSL - Attribute - Validation - Sector_ID">
+                                <Metadata>
+                                    <Name>CSL - Attribute - Validation - Sector_ID</Name>
+                                    <Description>Sector ID:\nDescription: The cell sector ID of the cell tower sector antenna face associated with the location\nDomain: None\nExample: Omni; 1; 3\n\npg 69</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Cell_Sector_Location" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="Sector_ID"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="Sector_ID"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="Sector_ID"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="length">
+                                                    <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="Sector_ID"/>
+                                                </BuiltinFnValue>
+                                                <LessEqualsRelation/>
+                                                <StaticValue datatype="integer" value="4"/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Recommended_Layers/Cell_Site_Location/Mandatory/CSL - Attribute - Validation - State">
+                                <Metadata>
+                                    <Name>CSL - Attribute - Validation - State</Name>
+                                    <Description>State \nDescription: The name of a state or state equivalent, represented by the two-letter abbreviation given in USPS Publication 28 [14], Appendix B. A state is a primary governmental division of the United States.\nDomain: ISO 3166-2 includes the same abbreviations as USPS Publication 28 [14], Appendix B, with the exception of the additional one for the nine minor uninhabited islands owned by the US: These abbreviations are also freely available at https://www.census.gov/geo/reference/ansi_statetables.html\nExample: TN; NM; OR\n\npg 71</Description>
+                                    <Comments>mkI - List of ORs\nmkII - Use Valid Values States table\nInitial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Cell_Sector_Location" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="State"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="State"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <ConditionalValue>
+                                                    <RelationalPredicate>
+                                                        <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="State"/>
+                                                        <RegExpRelation reType="pcre" one_char="?"/>
+                                                        <StaticValue datatype="string" value="\d"/>
+                                                    </RelationalPredicate>
+                                                    <StaticValue datatype="string" value="number"/>
+                                                    <StaticValue datatype="string" value="string"/>
+                                                </ConditionalValue>
+                                                <EqualsRelation/>
+                                                <StaticValue datatype="string" value="string"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="length">
+                                                    <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="State"/>
+                                                </BuiltinFnValue>
+                                                <GreaterRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="length">
+                                                    <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="State"/>
+                                                </BuiltinFnValue>
+                                                <EqualsRelation/>
+                                                <StaticValue datatype="integer" value="2"/>
+                                            </RelationalPredicate>
+                                            <ExistsPredicate qualifier="exactly" n="1" classLabel="NG911_ValidValues_Table_States" objLabel="">
+                                                <RelationalPredicate>
+                                                    <DynamicValue classRef="NG911_ValidValues_Table_States" objRef="" propName="State_Abbr"/>
+                                                    <EqualsRelation/>
+                                                    <BuiltinFnValue fnName="to_uppercase">
+                                                        <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="State"/>
+                                                    </BuiltinFnValue>
+                                                </RelationalPredicate>
+                                            </ExistsPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                            <Item id="RULE://Standard/NENA - Validations/Recommended_Layers/Cell_Site_Location/Mandatory/CSL - Attribute - Validation - Technology">
+                                <Metadata>
+                                    <Name>CSL - Attribute - Validation - Technology</Name>
+                                    <Description>Technology:\nDescription: The type of wireless technology used for the cell sector locations.\nDomain: None\nExample: TDMA; LTE; CDMA\n\npg 74</Description>
+                                    <Comments>mkI - List of ORs\nmkII - Use Valid Values States table\nInitial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Cell_Sector_Location" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="Technology"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="Technology"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="Technology"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="length">
+                                                    <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="Technology"/>
+                                                </BuiltinFnValue>
+                                                <LessEqualsRelation/>
+                                                <StaticValue datatype="integer" value="10"/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                        </RuleFolder>
+                        <RuleFolder>
+                            <Metadata>
+                                <Name>Optional</Name>
+                                <Created>
+                                    <UserDate date="2019-09-03T03:06:02.000Z"/>
+                                </Created>
+                                <LastEdited>
+                                    <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                </LastEdited>
+                            </Metadata>
+                            <IsShortcut>false</IsShortcut>
+                            <Item id="RULE://Standard/NENA - Validations/Recommended_Layers/Cell_Site_Location/Optional/CSL - Attribute - Validation - Site_NGUID">
+                                <Metadata>
+                                    <Name>CSL - Attribute - Validation - Site_NGUID</Name>
+                                    <Description>Site NENA Globally Unique ID:\nDescription: The NENA Globally Unique ID for each Site/Structure Address Point. Each record in the Site/Structure Address Points layer MUST have a globally unique ID. When coalescing data from other local 9-1-1 Authorities into the ECRF and LVF, this unique ID MUST continue to have only one occurrence. One way to accomplish this is to append the 9-1-1 Authorityâ€™s domain to the end of the â€œlocally unique IDâ€�.\nDomain: None\nExample: Feature ID 2002 in the Site/Structure Address Points layer would be represented as SITE2002@911Authority_domain.state.us\n\npg 70</Description>
+                                    <Comments>Initial Version - AJ\nUpdated Naming Conventions - AJ - 1/25/2019</Comments>
+                                    <Created>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </Created>
+                                    <LastEdited>
+                                        <UserDate date="2019-09-03T03:06:02.000Z" user="1Spatial"/>
+                                    </LastEdited>
+                                </Metadata>
+                                <IsShortcut>false</IsShortcut>
+                                <Rule>
+                                    <RootPredicate classLabel="Cell_Sector_Location" objLabel="">
+                                        <AndPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="Site_NGUID"/>
+                                                <NotEqualsRelation/>
+                                                <NullValue/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="Site_NGUID"/>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="integer" value="0"/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="trim">
+                                                    <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="Site_NGUID"/>
+                                                </BuiltinFnValue>
+                                                <NotEqualsRelation/>
+                                                <StaticValue datatype="string" value=""/>
+                                            </RelationalPredicate>
+                                            <RelationalPredicate>
+                                                <BuiltinFnValue fnName="length">
+                                                    <DynamicValue classRef="Cell_Sector_Location" objRef="" propName="Site_NGUID"/>
+                                                </BuiltinFnValue>
+                                                <LessEqualsRelation/>
+                                                <StaticValue datatype="integer" value="254"/>
+                                            </RelationalPredicate>
+                                        </AndPredicate>
+                                    </RootPredicate>
+                                </Rule>
+                            </Item>
+                        </RuleFolder>
+                    </RuleFolder>
+                </RuleFolder>
+            </RuleFolder>
+        </RuleFolder>
+    </RuleFolder>
+</Backup>

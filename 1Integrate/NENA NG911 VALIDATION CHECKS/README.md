@@ -14,14 +14,14 @@ This repository folder is broken down by layer idenified within the NENA guideli
 ###[Site Structure Address Point](RequiredLayers\Site_Structure_Address_Point.xml)
 
 ## Strongly Recommended Layers
-###[Complete Landmark Name Alias Table.xml](StronglyRecommendedLayers\Complete_Landmark_Name_Alias_Table.xml)
-###[Counties](StronglyRecommendedLayers\Counties.xml)
-###[Incorporated Muni Boundary](StronglyRecommendedLayers\Incorporated_Muni_Boundary.xml)
-###[Landmark Name Part Table](StronglyRecommendedLayers\Landmark_Name_Part_Table.xml)
-###[Neighborhood Comm Boundary](StronglyRecommendedLayers\Neighborhood_Comm_Boundary.xml)
-###[States](StronglyRecommendedLayers\States.xml)
-###[Street Name Alias Table.xml](StronglyRecommendedLayers\Street_Name_Alias_Table.xml)
-###[Unincorporated Comm Boundary.xml](StronglyRecommendedLayers\Unincorporated_Comm_Boundary.xml)
+### [Complete Landmark Name Alias Table.xml](StronglyRecommendedLayers\Complete_Landmark_Name_Alias_Table.xml)
+### [Counties](StronglyRecommendedLayers\Counties.xml)
+### [Incorporated Muni Boundary](StronglyRecommendedLayers\Incorporated_Muni_Boundary.xml)
+### [Landmark Name Part Table](StronglyRecommendedLayers\Landmark_Name_Part_Table.xml)
+### [Neighborhood Comm Boundary](StronglyRecommendedLayers\Neighborhood_Comm_Boundary.xml)
+### [States](StronglyRecommendedLayers\States.xml)
+### [Street Name Alias Table.xml](StronglyRecommendedLayers\Street_Name_Alias_Table.xml)
+### [Unincorporated Comm Boundary.xml](StronglyRecommendedLayers\Unincorporated_Comm_Boundary.xml)
 
 ## Recommended Layers
 ###[Cell Site Location](RecommendedLayers\Cell_Site_Location.xml)

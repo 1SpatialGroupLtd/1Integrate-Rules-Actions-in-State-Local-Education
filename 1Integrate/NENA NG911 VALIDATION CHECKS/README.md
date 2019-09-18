@@ -7,11 +7,11 @@ For instructions on restoring a backup please refer to the following [documentat
 This repository folder is broken down by layer idenified within the NENA guidelines.  Each XML file includes all the Validation rules for that layer, including Conditional, Mandatory and Optional Rules, defined in the NENA guidelines. There are also helper DataStore backups that will assist in getting your 1Integrate environment configured.
 
 ## Required Layers
-###[Emergency Service Boundary](RequiredLayers\Emergency_Service_Boundary.xml)
-###[Provisioning Boundary](RequiredLayers\Provisioning_Boundary.xml)
-###[PSAP Boundary](RequiredLayers\PSAP_Boundary.xml)
-###[Road Centerline](RequiredLayers\Road_Centerline.xml)
-###[Site Structure Address Point](RequiredLayers\Site_Structure_Address_Point.xml)
+### [Emergency Service Boundary](RequiredLayers\Emergency_Service_Boundary.xml)
+### [Provisioning Boundary](RequiredLayers\Provisioning_Boundary.xml)
+### [PSAP Boundary](RequiredLayers\PSAP_Boundary.xml)
+### [Road Centerline](RequiredLayers\Road_Centerline.xml)
+### [Site Structure Address Point](RequiredLayers\Site_Structure_Address_Point.xml)
 
 ## Strongly Recommended Layers
 ### [Complete Landmark Name Alias Table.xml](StronglyRecommendedLayers\Complete_Landmark_Name_Alias_Table.xml)
@@ -24,11 +24,11 @@ This repository folder is broken down by layer idenified within the NENA guideli
 ### [Unincorporated Comm Boundary.xml](StronglyRecommendedLayers\Unincorporated_Comm_Boundary.xml)
 
 ## Recommended Layers
-###[Cell Site Location](RecommendedLayers\Cell_Site_Location.xml)
-###[Hydrology Line](RecommendedLayers\Hydrology_Line.xml)
-###[Hydrology Polygon](RecommendedLayers\Hydrology_Polygon.xml)
-###[Mile Marker Location](RecommendedLayers\Mile_Marker_Location.xml)
-###[Railroad Centerline](RecommendedLayers\Railroad_Centerline.xml)
+### [Cell Site Location](RecommendedLayers\Cell_Site_Location.xml)
+### [Hydrology Line](RecommendedLayers\Hydrology_Line.xml)
+### [Hydrology Polygon](RecommendedLayers\Hydrology_Polygon.xml)
+### [Mile Marker Location](RecommendedLayers\Mile_Marker_Location.xml)
+### [Railroad Centerline](RecommendedLayers\Railroad_Centerline.xml)
 
 ## TemplateDataStore
 The template datastore folder includes a 1Integrate backup of a DataStore that matches the NENA Schema and another DataStore that holds the Valid Value lists (Domain Lists) for Country, State & County names.  Also included are Esri File Geodatabases of the expected NENA Schema and the Valid Values tables.      

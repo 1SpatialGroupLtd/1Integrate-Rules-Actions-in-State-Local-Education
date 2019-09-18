@@ -7,7 +7,7 @@ For instructions on restoring a backup please refer to the following [documentat
 This repository folder is broken down by layer idenified within the NENA guidelines.  Each XML file includes all the Validation rules for that layer, including Conditional, Mandatory and Optional Rules, defined in the NENA guidelines. There are also helper DataStore backups that will assist in getting your 1Integrate environment configured.
 
 ## Required Layers
-### [Emergency Service Boundary](RequiredLayers\Emergency_Service_Boundary.xml)
+### [Emergency Service Boundary](RequiredLayers/Emergency_Service_Boundary.xml)
 ### [Provisioning Boundary](RequiredLayers\Provisioning_Boundary.xml)
 ### [PSAP Boundary](RequiredLayers\PSAP_Boundary.xml)
 ### [Road Centerline](RequiredLayers\Road_Centerline.xml)

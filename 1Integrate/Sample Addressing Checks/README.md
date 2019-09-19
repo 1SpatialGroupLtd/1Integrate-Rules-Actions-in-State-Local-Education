@@ -17,10 +17,11 @@ This check only looks at roads that are connected from a start to end relationsh
 ![Alt text](img/CenterlineAddressesHaveNoOverlaps_Rule.png?raw=true "Centerline Address Range Overlap Rule Screenshot")
 
 ### [Road Centerline address Parity Switch Check](CenterlineAddressesHaveNoParitySwitches_left.xml)
-Checks that if two roads are connected at either the start or the end that both road centerline left address ranges have either even or odd addresses and are not mixed.
+Checks that if two roads are connected at either the start or the end that both road centerline left address ranges have either even or odd addresses and are not mixed.  
 ![Alt text](img/CenterlineAddressesHaveNoParitySwitches_Rule.png?raw=true "Centerline Address Range Parity Rule Screenshot")
 
 ## Site Address Point Validation Checks
+
 ### [Site Address Point has matching street name](SiteAddressPointHasMatchingCenterlineWithin200_all_street_attr.xml)
 Checks that every address point has a road centerline within 200 units (typically feet or meters depending on the coordinate system) that has the same road name.
 ![Alt text](img/SSAPHasCenterlineWithSameName_Rule.png?raw=true "SSAP vs Centerline Street Name Rule Screenshot")
@@ -30,7 +31,7 @@ Checks that every address point has a road centerline within 200 units (typicall
 ![Alt text](img/SSAPHasCenterlineWithSameStreetAttributes_Rule.png?raw=true "SSAP vs Centerline Street Attributes Rule Screenshot")
 
 ### [Site Address Point is within matching PSAP Boundary](SiteAddressPointWithinCorrectPSAP.xml)
-Checks that every address point is within a PSAP Boundary and the PSAP_ID of the address point matches the PSAP_ID of the PSAP that the address point is within.
+Checks that every address point is within a PSAP Boundary and the PSAP_ID of the address point matches the PSAP_ID of the PSAP that the address point is within.  
 ![Alt text](img/SSAPWithinCorrectPSAP_Rule.png?raw=true "SSAP Within Correct PSAP Rule Screenshot")
 
 

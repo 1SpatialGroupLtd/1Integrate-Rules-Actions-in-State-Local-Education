@@ -4,6 +4,13 @@ These road checks are used by a number of State and County organizations using 1
 These rules are written against the NENA NextGen911 Standard Schema for Road Centerlines 
 For instructions on restoring a backup please refer to the following [documentation](https://1spatial.com/documentation/1integrate/v2_5/Topics/Backup_Restore.htm?Highlight=Restore%20Backup%20Rules)
 
+## [Road Must Not Contain Self Intersecting Segments] (RoadCenterlinesDoNotSelfIntersect.xml)
+Tests to see if a simple Road geometry has any self-intersecting segments. The find_self_intersections built-in finds the points at which a line self-intersects. The value returned would be a list of (possibly empty) points where the line self-intersects.
+
+### Rule Syntax
+Check for Road objects that find_self_intersections(Road.geometry) equals null.
+![Alt text](img/RoadGeometryDoesNotContainSelfIntersections_Rule.png?raw=true "Self-intersecting Rule Screenshot")
+
 ## [Road Centerline Must Not Be Too Short or NULL](RoadCenterlinesMustNotBeTooShort.xml)
 Tests to see if a Road geometry is too short or NULL. For this example, a Road geometry needs to be longer than the data unit of length of 3. This rule uses the built-in function line_length. The line_length built-in function returns the length of a line. If the geometry passed in is a simple point or a simple area, then the length returned will be 0. If it is a complex geometry, the length returned will be the sum of the lengths of each simple line in the complex geometry. Note: This function does not currently fully support 3D geometries. Any 3D geometries will be projected down to 2 dimensions.
 ### Rule Syntax

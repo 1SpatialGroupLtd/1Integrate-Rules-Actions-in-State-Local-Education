@@ -4,7 +4,7 @@ These addressing checks are used by a number of State and County organizations u
 These rules are written against the NENA NextGen911 Standard Schema for Road Centerlines and Site Structure Address Points.
 For instructions on uploading and publishing Rulesets, please refer to the following [documentation](https://1spatial.com/documentation/1integrate-arcgis/v2/Topics/Rules/Free_Rulesets.htm).
 
-### [Sample Addressing Checks] (SampleAddressingChecks.rules)
+### [Sample Addressing Checks](SampleAddressingChecks.rules)
 Listed below are descriptions and syntax of each individual rule contained within the sample ruleset.
 
 ## Road Centerline Validation Checks

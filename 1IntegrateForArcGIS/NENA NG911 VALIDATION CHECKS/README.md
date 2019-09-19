@@ -11,7 +11,7 @@ This repository folder is broken down by layer identified within the NENA guidel
 In lieu of Valid Values tables, the validation rules that reference them have been flagged with a comment to revise the string as necessary, particularly values that indicate state abbreviation and county names. The current ruleset uses the state of Maryland as an example. The abbreviation "US" has been populated as a default Country value.
 
 ## Template Schema
-The template schema folder contains an Esri File Geodatabase of the expected NENA Schema along with a packaged project file containing it created in ArcGIS Pro v2.4.1. To ensure compatibility between your data and these rules, the folder also includes a JSON file to be uploaded and referenced as a schema on the 1Integrate for ArcGIS Rule Author. For instructions on managing schemas, please refer to the following [documentation] (https://1spatial.com/documentation/1integrate-arcgis/v2/Topics/Rules/Schemas.htm).
+The template schema folder contains an Esri File Geodatabase of the expected NENA Schema along with a packaged project file containing it created in ArcGIS Pro v2.4.1. To ensure compatibility between your data and these rules, the folder also includes a JSON file to be uploaded and referenced as a schema on the 1Integrate for ArcGIS Rule Author. For instructions on managing schemas, please refer to the following [documentation](https://1spatial.com/documentation/1integrate-arcgis/v2/Topics/Rules/Schemas.htm).
 
 ## Licensing
 Copyright © 2018 1Spatial US Patent Number 9542416 B2 (2017-01-10)

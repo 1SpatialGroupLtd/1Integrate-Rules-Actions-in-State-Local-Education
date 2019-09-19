@@ -4,7 +4,7 @@ These road checks are used by a number of State and County organizations using 1
 These rules are written against the NENA NextGen911 Standard Schema for Road Centerlines. 
 For instructions on uploading and publishing Rulesets, please refer to the following [documentation](https://1spatial.com/documentation/1integrate-arcgis/v2/Topics/Rules/Free_Rulesets.htm).
 
-### [Sample Road Centerline Checks] (RoadCenterlineValidations.rules)
+### [Sample Road Centerline Checks](RoadCenterlineValidations.rules)
 Listed below are descriptions and syntax of each individual rule contained within the sample ruleset.
 
 ## Road Must Not Contain Self Intersecting Segments
@@ -12,7 +12,7 @@ Tests to see if a simple Road geometry has any self-intersecting segments. The f
 
 ### Rule Syntax
 Check for Road objects that find_self_intersections(Road.geometry) equals null.
-![Alt text](img/RoadGeometryDoesNotContainSelfIntersections_Rule.png?raw=true "Self-intersecting Rule Screenshot")
+![Alt text](img/RoadSelfIntersects_Rule.png?raw=true "Self-intersecting Rule Screenshot")
 
 
 ## Road Must Not Be Too Short or NULL
@@ -38,7 +38,7 @@ Linear containment occurs when a Road geometry completely contains another Road 
 
 ### Rule Syntax
 Check for Road objects that for all Road objects other for which Road:other.geometry intersects Road.geometry check that start_of(Road:other.geometry) intersects start_of(Road.geometry) or start_of(Road:other.geometry) intersects end_of(Road.geometry) or end_of(Road:other.geometry) intersects start_of(Road.geometry) or end_of(Road:other.geometry) intersects end_of(Road.geometry)  
-![Alt text](img/RoadsDoNotContainOtherRoads_Rule.PNG?raw=true "Road Containment Rule Screenshot")
+![Alt text](img/RoadsDoNotContainOtherRoads_Rule.png?raw=true "Road Containment Rule Screenshot")
 
 
 ## Roads Must Not Overlap Other Roads
@@ -55,7 +55,7 @@ Tests to see that Roads intersects other Roads at the start and end only, as opp
 
 ### Rule Syntax
 Check for Roads objects that for all Road objects other for which Road:other.geometry intersects Road.geometry check that the start_of or end_of Road:other.geometry intersects the start_of or end_of Road.geometry  
-![Alt text](img/RoadsMustIntersectAtStartAndEndPoints_Rule.PNG?raw=true "Roads Intersect at Ends Rule Screenshot")
+![Alt text](img/RoadsMustIntersectAtStartAndEndPoints_Rule.png?raw=true "Roads Intersect at Ends Rule Screenshot")
 
 
 

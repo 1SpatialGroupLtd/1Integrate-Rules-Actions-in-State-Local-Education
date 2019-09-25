@@ -4,7 +4,7 @@ These road checks are used by a number of State and County organizations using 1
 These rules are written against the NENA NextGen911 Standard Schema for Road Centerlines 
 For instructions on restoring a backup please refer to the following [documentation](https://1spatial.com/documentation/1integrate/v2_5/Topics/Backup_Restore.htm?Highlight=Restore%20Backup%20Rules)
 
-## [Road Must Not Contain Self Intersecting Segments](RoadCenterlinesDoNotSelfIntersect.xml)
+## [Road Must Not Contain Self Intersecting Segments] (RoadCenterlinesDoNotSelfIntersect.xml)
 Tests to see if a simple Road geometry has any self-intersecting segments. The find_self_intersections built-in finds the points at which a line self-intersects. The value returned would be a list of (possibly empty) points where the line self-intersects.
 
 ### Rule Syntax

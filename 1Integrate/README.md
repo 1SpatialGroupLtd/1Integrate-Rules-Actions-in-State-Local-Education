@@ -14,6 +14,9 @@ This repository includes sample 1Integrate validation checks against the Nationa
 ### Sample Addressing Checks
 This folder contains some sample addressing checks by Rule that can be used within 1Integrate.  
 
+### Sample Centerline Boundary Integration Checks
+This repository folder contains some Sample Centerline Boundary Integration Checks that can be used within 1Integrate.
+
 ### Sample Road Centerline Checks
 This folder contains some Sample Road Centerline checks by Rule that can be used within 1Integrate. 
 

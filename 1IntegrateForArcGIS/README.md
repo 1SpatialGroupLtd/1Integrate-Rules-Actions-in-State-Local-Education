@@ -16,6 +16,9 @@ This repository includes sample 1Integrate for ArcGIS validation checks against 
 ### Sample Addressing Checks
 This repository folder contains some Sample Addressing Checks that can be used with 1Integrate for ArcGIS. 
 
+### Sample Centerline Boundary Integration Checks
+This repository folder contains some Sample Centerline Boundary Integration Checks that can be used within 1Integrate for ArcGIS.  
+
 ### Sample Road Centerline Checks
 This repository folder contains some Sample Road Centerline Checks that can be used with 1Integrate for ArcGIS.
 

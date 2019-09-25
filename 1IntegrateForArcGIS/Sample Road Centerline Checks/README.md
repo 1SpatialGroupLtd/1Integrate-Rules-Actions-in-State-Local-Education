@@ -58,6 +58,12 @@ Check for Roads objects that for all Road objects other for which Road:other.geo
 ![Alt text](img/RoadsMustIntersectAtStartAndEndPoints_Rule.png?raw=true "Roads Intersect at Ends Rule Screenshot")
 
 
+## [Roads Must Have a Name](RoadsMustHaveName.xml)
+This rule checks for Roads that have a NULL street name attribute.  
+
+### Rule Syntax
+Check for Road objects that Road.St_Name is not equal to NULL.
+![Alt text](img/RoadsMustHaveName_Rule.png?raw=true "Road Name Rule Screenshot")
 
 
 

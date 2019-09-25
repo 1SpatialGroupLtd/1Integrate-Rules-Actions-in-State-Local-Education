@@ -1,10 +1,10 @@
 # Sample Road Centerline Checks
-This repo folder contains some Sample Road Centerline checks by Rule that can be used within 1Integrate.  
+This repository folder contains some Sample Road Centerline checks by Rule that can be used within 1Integrate.  
 These road checks are used by a number of State and County organizations using 1Spatial's 1Integrate software. 
 These rules are written against the NENA NextGen911 Standard Schema for Road Centerlines 
 For instructions on restoring a backup please refer to the following [documentation](https://1spatial.com/documentation/1integrate/v2_5/Topics/Backup_Restore.htm?Highlight=Restore%20Backup%20Rules)
 
-## [Road Must Not Contain Self Intersecting Segments](RoadCenterlinesDoNotSelfIntersect.xml)
+## [Road Must Not Contain Self Intersecting Segments] (RoadCenterlinesDoNotSelfIntersect.xml)
 Tests to see if a simple Road geometry has any self-intersecting segments. The find_self_intersections built-in finds the points at which a line self-intersects. The value returned would be a list of (possibly empty) points where the line self-intersects.
 
 ### Rule Syntax
@@ -46,6 +46,15 @@ Overlaps occur when linear start/end points go past one another so a portion of 
 ### Rule Syntax
 Check for Road objects that there are no Road objects other for which Road:other.geometry overlaps Road.geometry and Road:other does not equal Road  
 ![Alt text](img/RoadsDoNotOverlap_Rule.png?raw=true "Overlapping Roads Rule Screenshot")
+
+## [Roads Must Have a Name](RoadsMustHaveName.xml)
+This rule checks for Roads that have a NULL street name attribute.  
+
+
+### Rule Syntax
+Check for Road objects that Road.St_Name is not equal to NULL.
+![Alt text](img/RoadsMustHaveName_Rule.png?raw=true "Road Name Rule Screenshot")
+
 
 ## Licensing
 Copyright © 2018 1Spatial US Patent Number 9542416 B2 (2017-01-10)
